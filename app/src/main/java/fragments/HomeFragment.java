@@ -41,7 +41,7 @@ import com.amanoteam.kurt.R;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textview.MaterialTextView;
-
+import android.webkit.WebView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -50,7 +50,7 @@ public class HomeFragment extends Fragment {
 
 	@Override
 	public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
-		final RulesetsFragmentBinding binding = RulesetsFragmentBinding.inflate(inflater, container, false);
+		final HomeFragmentBinding binding = HomeFragmentBinding.inflate(inflater, container, false);
 		return binding.getRoot();
 	}
 
