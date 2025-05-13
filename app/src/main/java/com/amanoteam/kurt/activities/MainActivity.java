@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 		});
 
 		final AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-			R.id.navigation_home, R.id.navigation_console, R.id.navigation_network)
+			R.id.navigation_browser, R.id.navigation_console, R.id.navigation_network)
 			.build();
 		final NavController navController = Navigation.findNavController(this, R.id.fragment_container_view);
 		NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
