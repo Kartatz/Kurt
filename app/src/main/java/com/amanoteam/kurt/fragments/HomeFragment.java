@@ -56,7 +56,9 @@ import android.webkit.WebViewClient;
 import android.webkit.WebSettings;
 import android.webkit.ValueCallback;
 public class HomeFragment extends Fragment {
-
+	
+	private WebView webView = null;
+	
 	@Override
 	public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
 		final HomeFragmentBinding binding = HomeFragmentBinding.inflate(inflater, container, false);
@@ -70,7 +72,11 @@ public class HomeFragment extends Fragment {
 		
 		final LayoutInflater layoutInflater = activity.getLayoutInflater();
 		
-		WebView webView = (WebView) fragmentView.findViewById(R.id.webview);
+		if (webView != null) {
+			return;
+		}
+		
+		webView = (WebView) fragmentView.findViewById(R.id.webview);
 		webView.setWebViewClient(new WebViewClient());
 		webView.setWebChromeClient(new WebChromeClient());
 		webView.setVisibility(View.VISIBLE);
