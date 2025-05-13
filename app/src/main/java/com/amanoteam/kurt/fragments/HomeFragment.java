@@ -84,7 +84,7 @@ public class HomeFragment extends Fragment {
 		webView.setVisibility(View.VISIBLE);
 		
 		
-		webView.loadUrl("http://wikipedia.org");
+		webView.loadUrl("https://wikipedia.org");
 		
 	}
 	
