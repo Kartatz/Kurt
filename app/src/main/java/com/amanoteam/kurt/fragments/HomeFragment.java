@@ -72,13 +72,10 @@ public class HomeFragment extends Fragment {
 		
 		final LayoutInflater layoutInflater = activity.getLayoutInflater();
 		webView = (WebView) fragmentView.findViewById(R.id.webview);
-		if (webView == null) {
-			
-			
-			webView.setWebViewClient(new WebViewClient());
-			webView.setWebChromeClient(new WebChromeClient());
-			webView.setVisibility(View.VISIBLE);
-		}
+		webView.setWebViewClient(new WebViewClient());
+		webView.setWebChromeClient(new WebChromeClient());
+		webView.setVisibility(View.VISIBLE);
+		
 		
 		webView.loadUrl("http://g.co");
 		
