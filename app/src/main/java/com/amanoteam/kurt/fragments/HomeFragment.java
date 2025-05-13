@@ -73,6 +73,7 @@ public class HomeFragment extends Fragment {
 		final LayoutInflater layoutInflater = activity.getLayoutInflater();
 		
 		if (webView != null) {
+			webView.setVisibility(View.VISIBLE);
 			return;
 		}
 		
