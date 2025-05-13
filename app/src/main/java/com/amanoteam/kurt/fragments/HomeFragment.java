@@ -46,7 +46,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import com.amanoteam.kurt.databinding.HomeFragmentBinding;
-
+import android.webkit.ConsoleMessage;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.webkit.WebSettings;
+import android.webkit.ValueCallback;
 public class HomeFragment extends Fragment {
 
 	@Override
@@ -63,6 +71,7 @@ public class HomeFragment extends Fragment {
 		final LayoutInflater layoutInflater = activity.getLayoutInflater();
 		
 		WebView webView = (WebView) fragmentView.findViewById(R.id.webview);
+		webView.setWebChromeClient(new WebChromeClient());
 		webView.setVisibility(View.VISIBLE);
 		webView.loadUrl("http://g.co");
 		
