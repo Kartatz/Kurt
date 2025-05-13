@@ -45,6 +45,7 @@ import android.webkit.WebView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import com.amanoteam.kurt.databinding.HomeFragmentBinding;
 
 public class HomeFragment extends Fragment {
 
