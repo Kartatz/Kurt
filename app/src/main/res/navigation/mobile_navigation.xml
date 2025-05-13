@@ -8,7 +8,7 @@
 	<fragment
 		android:id="@+id/navigation_browser"
 		android:name="com.amanoteam.kurt.fragments.HomeFragment"
-		android:label="Home"
+		android:label="Browse"
 		tools:layout="@layout/home_fragment" />
 
 	<fragment

@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment {
 		final LayoutInflater layoutInflater = activity.getLayoutInflater();
 		
 		WebView webView = (WebView) fragmentView.findViewById(R.id.webview);
-		
+		webView.loadUrl("http://g.co");
 		
 	}
 	
