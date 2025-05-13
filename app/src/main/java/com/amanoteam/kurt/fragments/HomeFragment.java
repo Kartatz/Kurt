@@ -71,10 +71,10 @@ public class HomeFragment extends Fragment {
 		final Context context = activity.getApplicationContext();
 		
 		final LayoutInflater layoutInflater = activity.getLayoutInflater();
-		
+		webView = (WebView) fragmentView.findViewById(R.id.webview);
 		if (webView == null) {
 			
-			webView = (WebView) fragmentView.findViewById(R.id.webview);
+			
 			webView.setWebViewClient(new WebViewClient());
 			webView.setWebChromeClient(new WebChromeClient());
 			webView.setVisibility(View.VISIBLE);
