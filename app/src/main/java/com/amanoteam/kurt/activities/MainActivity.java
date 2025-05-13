@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 	
 	@Override
-	protected boolean onSupportNavigateUp(void) {
+	protected boolean onSupportNavigateUp() {
         return navController.navigateUp(appBarConfiguration);
     }
 
