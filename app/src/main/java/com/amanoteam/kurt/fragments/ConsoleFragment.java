@@ -1,5 +1,6 @@
 package com.amanoteam.kurt.fragments;
 
+import com.amanoteam.kurt.databinding.ConsoleFragmentBinding;
 import androidx.work.WorkRequest;
 import androidx.work.WorkManager;
 import androidx.work.OneTimeWorkRequest;
@@ -41,7 +42,7 @@ import com.amanoteam.kurt.R;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textview.MaterialTextView;
-import com.amanoteam.kurt.databinding.ConsoleFragmentBinding;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
