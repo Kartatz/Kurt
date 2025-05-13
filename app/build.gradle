@@ -1,38 +1,38 @@
 plugins {
-	id 'com.android.application'
+	id = 'com.android.application'
 }
 
 android {
-	namespace 'com.amanoteam.kurt'
+	namespace = 'com.amanoteam.kurt'
 
-	compileSdk 36
+	compileSdk = 36
 
 	defaultConfig {
-		minSdk 21
-		targetSdk 36
-		versionCode 1
-		versionName "0.1"
+		minSdk = 21
+		targetSdk = 36
+		versionCode = 1
+		versionName = "0.1"
 	}
 
 	buildTypes {
 		debug {
-			debuggable true
-			minifyEnabled false
-			zipAlignEnabled false
-			shrinkResources false
-			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+			debuggable = true
+			minifyEnabled = false
+			zipAlignEnabled = false
+			shrinkResources = false
+			proguardFiles = getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 		}
 		release {
-			debuggable false
-			minifyEnabled true
-			zipAlignEnabled true
-			shrinkResources true
-			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+			debuggable = false
+			minifyEnabled = true
+			zipAlignEnabled = true
+			shrinkResources = true
+			proguardFiles = getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 		}
 	}
 
 	buildFeatures {
-		viewBinding true
+		viewBinding = true
 	}
 }
 
