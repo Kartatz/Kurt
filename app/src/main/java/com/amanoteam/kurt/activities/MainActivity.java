@@ -48,8 +48,7 @@ public class MainActivity extends AppCompatActivity {
 		navController = Navigation.findNavController(this, R.id.fragment_container_view);
 		BottomNavigationView kkk = findViewById(R.id.bottom_navigation);
 		NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-		//NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
-		kkk.setupWithNavController(binding.bottomNavigation, navController);
+		NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
 		
 		//navController.addOnDestinationChangedListener((final NavController controller, final NavDestination destination, final Bundle arguments) -> PackageUtils.hideKeyboard(MainActivity.this));
 

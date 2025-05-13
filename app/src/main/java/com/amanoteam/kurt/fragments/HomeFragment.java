@@ -60,9 +60,14 @@ public class HomeFragment extends Fragment {
 	
 	private WebView webView = null;
 	
+	private HomeFragmentBinding binding = null;
+	
 	@Override
 	public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
-		final HomeFragmentBinding binding = HomeFragmentBinding.inflate(inflater, container, false);
+		if (binding == null) {
+			binding = HomeFragmentBinding.inflate(inflater, container, false);
+		}
+		
 		return binding.getRoot();
 	}
 
