@@ -12,7 +12,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.preference.PreferenceManager;
-
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.amanoteam.kurt.R;
 import com.amanoteam.kurt.databinding.ActivityMainBinding;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -46,9 +46,11 @@ public class MainActivity extends AppCompatActivity {
 			R.id.navigation_browser, R.id.navigation_console, R.id.navigation_network)
 			.build();
 		navController = Navigation.findNavController(this, R.id.fragment_container_view);
+		BottomNavigationView a = findViewById(R.id.bottom_navigation);
 		NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-		NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
-
+		//NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
+		a.setupWithNavController(binding.bottomNavigation, navController);
+		
 		//navController.addOnDestinationChangedListener((final NavController controller, final NavDestination destination, final Bundle arguments) -> PackageUtils.hideKeyboard(MainActivity.this));
 
 		final Window window = getWindow();
