@@ -9,6 +9,6 @@
 		android:title="Console" />
 	<item
 		android:id="@+id/navigation_network"
-		android:icon="@drawable/ic_settings"
+		android:icon="@drawable/ic_list"
 		android:title="Network" />
 </menu>
