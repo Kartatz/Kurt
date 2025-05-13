@@ -50,7 +50,7 @@ public class ConsoleFragment extends Fragment {
 
 	@Override
 	public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
-		final RulesetsFragmentBinding binding = RulesetsFragmentBinding.inflate(inflater, container, false);
+		final ConsoleFragmentBinding binding = ConsoleFragmentBinding.inflate(inflater, container, false);
 		return binding.getRoot();
 	}
 
