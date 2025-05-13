@@ -5,7 +5,7 @@
 		android:title="Browser" />
 	<item
 		android:id="@+id/navigation_console"
-		android:icon="@drawable/ic_ballot"
+		android:icon="@drawable/ic_terminal"
 		android:title="Console" />
 	<item
 		android:id="@+id/navigation_network"
