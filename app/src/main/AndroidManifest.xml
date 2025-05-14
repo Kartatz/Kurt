@@ -6,6 +6,7 @@
 		android:allowBackup="true"
 		android:name=".core.CoreApplication"
 		android:label="Kurt"
+		android:networkSecurityConfig="@xml/network_security_config"
 		android:theme="@style/AppTheme">
 		<meta-data
 			android:name="android.webkit.WebView.MetricsOptOut"

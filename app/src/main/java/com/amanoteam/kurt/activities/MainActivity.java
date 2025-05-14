@@ -67,10 +67,11 @@ public class MainActivity extends AppCompatActivity {
 		window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		
 		viewModel = new ViewModelProvider(this).get(KurtViewModel.class);
-		/*
-		navController.navigate(R.id.navigation_browser);
+		
+		navController.navigate(R.id.navigation_network);
 		navController.navigate(R.id.navigation_console);
-		*/
+		navController.navigate(R.id.navigation_browser);
+		
 		onBackPressedDispatcher = getOnBackPressedDispatcher();
 		
 		onBackPressedDispatcher.addCallback(this, new OnBackPressedCallback(true) {
