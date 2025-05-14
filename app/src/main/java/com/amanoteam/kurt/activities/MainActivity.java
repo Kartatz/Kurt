@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 	private NavController navController = null;
 	private KurtViewModel viewModel = null;
 	
+	OnBackPressedDispatcher onBackPressedDispatcher = NULL;
+	
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -63,7 +65,9 @@ public class MainActivity extends AppCompatActivity {
 		
 		viewModel = new ViewModelProvider(this).get(KurtViewModel.class);
 		
-		getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+		onBackPressedDispatcher = getOnBackPressedDispatcher();
+		
+		onBackPressedDispatcher.addCallback(this, new OnBackPressedCallback(true) {
 			@Override
 			 public void handleOnBackPressed() {
 				final WebView webView = viewModel.getWebView();
@@ -73,7 +77,8 @@ public class MainActivity extends AppCompatActivity {
 				if (f instanceof HomeFragment && webView.canGoBack()) {
 					webView.goBack();
 				} else {
-					getOnBackPressedDispatcher().onBackPressed();
+					this.remove();
+					onBackPressedDispatcher.onBackPressed();
 				}
 			}
 		});
