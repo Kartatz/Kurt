@@ -142,7 +142,7 @@ public class HomeFragment extends Fragment {
 		});
 		
 		viewModel.setWebView(webView);
-		viewModel.homeFragment = binding;
+		//viewModel.homeFragment = binding;
 	}
 	
 }
