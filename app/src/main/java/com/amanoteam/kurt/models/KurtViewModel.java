@@ -12,7 +12,7 @@ public class KurtViewModel extends ViewModel {
 	public ConsoleFragmentBinding consoleFragment = null;
 	public NetworkFragmentBinding networkFragment = null;
 	
-	private WebView webView = null;
+	public WebView webView = null;
 	
 	public WebView getWebView() {
 		return webView;
