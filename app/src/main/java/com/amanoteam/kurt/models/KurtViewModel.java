@@ -11,7 +11,7 @@ public class KurtViewModel extends ViewModel {
 		return webView;
 	}
 	
-	public WebView setWebView(final WebView view) {
+	public void setWebView(final WebView view) {
 		webView = view;
 	}
 	
