@@ -45,10 +45,15 @@ import com.amanoteam.kurt.databinding.NetworkFragmentBinding;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import com.amanoteam.kurt.models.KurtViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModel;
 
 public class NetworkFragment extends Fragment {
 	
 	private NetworkFragmentBinding binding = null;
+	
+	private KurtViewModel viewModel = null;
 	
 	@Override
 	public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
@@ -66,7 +71,12 @@ public class NetworkFragment extends Fragment {
 		
 		final LayoutInflater layoutInflater = activity.getLayoutInflater();
 		
+		viewModel = (
+			new ViewModelProvider(activity)
+				.get(KurtViewModel.class)
+		);
 		
+		viewModel.networkFragment = binding;
 	}
 	
 }

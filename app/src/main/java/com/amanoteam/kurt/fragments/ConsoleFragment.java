@@ -46,10 +46,15 @@ import com.google.android.material.textview.MaterialTextView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import com.amanoteam.kurt.models.KurtViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModel;
 
 public class ConsoleFragment extends Fragment {
 	
 	private ConsoleFragmentBinding binding = null;
+	
+	private KurtViewModel viewModel = null;
 	
 	@Override
 	public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
@@ -67,9 +72,12 @@ public class ConsoleFragment extends Fragment {
 		
 		final LayoutInflater layoutInflater = activity.getLayoutInflater();
 		
-		//WebView webView = (WebView) fragmentView.findViewById(R.id.webview);
+		viewModel = (
+			new ViewModelProvider(activity)
+				.get(KurtViewModel.class)
+		);
 		
-		
+		viewModel.consoleFragment = binding;
 	}
 	
 }
