@@ -74,6 +74,10 @@ public class HomeFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(final View fragmentView, final Bundle savedInstanceState) {
+		if (binding != null) {
+			return;
+		}
+		
 		final FragmentActivity activity = getActivity();
 		final Context context = activity.getApplicationContext();
 		
@@ -83,7 +87,6 @@ public class HomeFragment extends Fragment {
 		webView.setWebViewClient(new WebViewClient());
 		webView.setWebChromeClient(new WebChromeClient());
 		webView.setVisibility(View.VISIBLE);
-		
 		
 		webView.loadUrl("https://wikipedia.org");
 		
