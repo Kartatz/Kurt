@@ -90,6 +90,7 @@ public class HomeFragment extends Fragment {
 		final SwipeRefreshLayout swipeRefresh = fragmentView.findViewById(R.id.swipe_to_refresh);
 		
 		swipeRefresh.setOnRefreshListener(() -> {
+			webView.clearCache(true);
 			webView.reload();
 			swipeRefresh.setRefreshing(false);
 		});
