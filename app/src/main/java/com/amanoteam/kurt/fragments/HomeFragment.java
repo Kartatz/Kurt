@@ -55,6 +55,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.webkit.WebSettings;
 import android.webkit.ValueCallback;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class HomeFragment extends Fragment {
 	
@@ -85,6 +86,13 @@ public class HomeFragment extends Fragment {
 		
 		
 		webView.loadUrl("https://wikipedia.org");
+		
+		final SwipeRefreshLayout swipeRefresh = fragmentView.findViewById(R.id.swipe_to_refresh);
+		
+		swipeRefresh.setOnRefreshListener(() -> {
+			webView.reload();
+			swipeRefresh.setRefreshing(false);
+		});
 		
 	}
 	
