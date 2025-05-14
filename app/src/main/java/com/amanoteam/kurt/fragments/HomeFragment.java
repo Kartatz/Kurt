@@ -141,7 +141,9 @@ public class HomeFragment extends Fragment {
 			swipeRefresh.setRefreshing(false);
 		});
 		
-		//viewModel.setWebView(webView);
+		final Toast toast = Toast.makeText(context, "bruh", Toast.LENGTH_SHORT);
+		toast.show();
+		viewModel.setWebView(webView);
 		//viewModel.homeFragment = binding;
 	}
 	
