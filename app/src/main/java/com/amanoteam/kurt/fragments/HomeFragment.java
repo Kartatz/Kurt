@@ -88,7 +88,10 @@ public class HomeFragment extends Fragment {
 		
 		final LayoutInflater layoutInflater = activity.getLayoutInflater();
 		
-		viewModel = new ViewModelProvider(activity).get(KurtViewModel.class);
+		viewModel = (
+			new ViewModelProvider(activity)
+				.get(KurtViewModel.class)
+		);
 		
 		webView = (WebView) fragmentView.findViewById(R.id.webview);
 		final WebSettings webSettings = webView.getSettings();
@@ -112,6 +115,8 @@ public class HomeFragment extends Fragment {
 			swipeRefresh.setRefreshing(false);
 		});
 		
+		viewModel.setWebView(webView);
+		viewModel.homeFragment = binding;
 	}
 	
 }
