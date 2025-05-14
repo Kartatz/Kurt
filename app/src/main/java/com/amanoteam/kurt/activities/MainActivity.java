@@ -25,6 +25,9 @@ import com.amanoteam.kurt.fragments.HomeFragment;
 import androidx.activity.OnBackPressedCallback;
 import androidx.activity.OnBackPressedDispatcher;
 import com.google.android.material.appbar.AppBarLayout;
+import android.os.IBinder;
+import android.view.inputmethod.InputMethodManager;
+import android.content.Context;
 
 public class MainActivity extends AppCompatActivity {
 	
@@ -65,8 +68,18 @@ public class MainActivity extends AppCompatActivity {
 		NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
 		
 		navController.addOnDestinationChangedListener((final NavController controller, final NavDestination destination, final Bundle arguments) -> {
-			//PackageUtils.hideKeyboard(MainActivity.this));
-			appbar.setExpanded(false);
+			appbar.setExpanded(true);
+			
+			final View view = getCurrentFocus();
+			
+			if (view == null) {
+				return;
+			}
+			
+			final IBinder windowToken = view.getWindowToken();
+			
+			final InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+			inputMethodManager.hideSoftInputFromWindow(windowToken, 0);
 		});
 
 		final Window window = getWindow();
