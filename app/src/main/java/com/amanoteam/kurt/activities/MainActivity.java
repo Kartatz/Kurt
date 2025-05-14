@@ -22,6 +22,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModel;
 import androidx.fragment.app.Fragment;
 import com.amanoteam.kurt.fragments.HomeFragment;
+import androidx.activity.OnBackPressedCallback;
 
 public class MainActivity extends AppCompatActivity {
 	
@@ -61,6 +62,21 @@ public class MainActivity extends AppCompatActivity {
 		window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		
 		viewModel = new ViewModelProvider(this).get(KurtViewModel.class);
+		
+		getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+			@Override
+			 public void handleOnBackPressed() {
+				final WebView webView = viewModel.getWebView();
+				
+				Fragment f = (androidx.fragment.app.Fragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container_view);
+				
+				if (f instanceof HomeFragment && webView.canGoBack()) {
+					webView.goBack();
+				} else {
+					super.handleOnBackPressed();
+				}
+			}
+		});
 	}
 	
 	@Override
