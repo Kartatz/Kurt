@@ -61,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
 		
 		viewModel = new ViewModelProvider(this).get(KurtViewModel.class);
 		
+		final InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+		
 		final AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
 			R.id.navigation_browser, R.id.navigation_console, R.id.navigation_network)
 			.build();
@@ -69,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 		NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
 		
 		navController.addOnDestinationChangedListener((final NavController controller, final NavDestination destination, final Bundle arguments) -> {
-			appbar.setExpanded(true);
+			appbar.setExpanded(true, true);
 			
 			final View view = getCurrentFocus();
 			
@@ -78,8 +80,6 @@ public class MainActivity extends AppCompatActivity {
 			}
 			
 			final IBinder windowToken = view.getWindowToken();
-			
-			final InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 			inputMethodManager.hideSoftInputFromWindow(windowToken, 0);
 		});
 
