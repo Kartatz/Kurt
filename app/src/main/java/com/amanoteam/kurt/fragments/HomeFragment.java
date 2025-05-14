@@ -141,7 +141,7 @@ public class HomeFragment extends Fragment {
 			swipeRefresh.setRefreshing(false);
 		});
 		
-		viewModel.setWebView(webView);
+		//viewModel.setWebView(webView);
 		//viewModel.homeFragment = binding;
 	}
 	
