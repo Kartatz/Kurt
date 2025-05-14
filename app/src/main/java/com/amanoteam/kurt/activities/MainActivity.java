@@ -78,8 +78,9 @@ public class MainActivity extends AppCompatActivity {
 				if (f instanceof HomeFragment && webView.canGoBack()) {
 					webView.goBack();
 				} else {
-					this.remove();
+					setEnabled(false);
 					onBackPressedDispatcher.onBackPressed();
+					setEnabled(true);
 				}
 			}
 		});
