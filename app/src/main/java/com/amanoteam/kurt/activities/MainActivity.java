@@ -60,8 +60,6 @@ public class MainActivity extends AppCompatActivity {
 		
 		NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 		NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
-		navController.navigate(R.id.navigation_browser);
-		navController.navigate(R.id.navigation_console);
 		
 		//navController.addOnDestinationChangedListener((final NavController controller, final NavDestination destination, final Bundle arguments) -> PackageUtils.hideKeyboard(MainActivity.this));
 
@@ -69,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
 		window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		
 		viewModel = new ViewModelProvider(this).get(KurtViewModel.class);
+		navController.navigate(R.id.navigation_browser);
+		navController.navigate(R.id.navigation_console);
 		
 		onBackPressedDispatcher = getOnBackPressedDispatcher();
 		
