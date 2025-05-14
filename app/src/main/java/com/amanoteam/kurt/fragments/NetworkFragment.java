@@ -48,6 +48,7 @@ import java.util.Objects;
 import com.amanoteam.kurt.models.KurtViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModel;
+import android.widget.Toast;
 
 public class NetworkFragment extends Fragment {
 	
@@ -77,6 +78,9 @@ public class NetworkFragment extends Fragment {
 		);
 		
 		viewModel.networkFragment = binding;
+		
+		final Toast toast = Toast.makeText(context, "bruh", Toast.LENGTH_SHORT);
+		toast.show();
 	}
 	
 }
