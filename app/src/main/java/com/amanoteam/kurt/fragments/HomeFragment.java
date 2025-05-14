@@ -103,11 +103,11 @@ public class HomeFragment extends Fragment {
 				.get(KurtViewModel.class)
 		);
 		
-		if (viewModel.homeFragment == null) {
-			binding = HomeFragmentBinding.inflate(inflater, container, false);
-		} else {
-			binding = viewModel.homeFragment;
-		}
+		binding = (
+			(viewModel.homeFragment == null) ?
+			HomeFragmentBinding.inflate(inflater, container, false) :
+			viewModel.homeFragment
+		);
 		
 		return binding.getRoot();
 	}
