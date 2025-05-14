@@ -109,7 +109,7 @@ public class HomeFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(final View fragmentView, final Bundle savedInstanceState) {
-		if (viewModel.homeFragment != null) {
+		if (viewModel.webView != null) {
 			return;
 		}
 		
