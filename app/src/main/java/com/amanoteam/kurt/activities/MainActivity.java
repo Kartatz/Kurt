@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 				
 				Fragment f = (androidx.fragment.app.Fragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container_view);
 				
-				if (f instanceof HomeFragment && webView.canGoBack()) {
+				if (/*f instanceof HomeFragment && */webView.canGoBack()) {
 					webView.goBack();
 				} else {
 					setEnabled(false);
