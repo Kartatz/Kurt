@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(binding.getRoot());
 		
 		final CoordinatorLayout.LayoutParams bottomNavigationLayout = (CoordinatorLayout.LayoutParams) binding.bottomNavigation.getLayoutParams();
+		
+		@SuppressWarnings("unchecked")
 		final HideViewOnScrollBehavior<BottomNavigationView> behavior = (HideViewOnScrollBehavior<BottomNavigationView>) bottomNavigationLayout.getBehavior();
 		
 		final MaterialToolbar toolbar = findViewById(R.id.main_toolbar);
