@@ -67,6 +67,7 @@ public class HomeFragment extends Fragment {
 	private WebView webView = null;
 	
 	private KurtViewModel viewModel = null;
+	private HomeFragmentBinding binding = null;
 	
 	private String cssSelector = null;
 	private String xPath = null;
@@ -103,17 +104,19 @@ public class HomeFragment extends Fragment {
 		);
 		
 		if (viewModel.homeFragment == null) {
-			viewModel.homeFragment = HomeFragmentBinding.inflate(inflater, container, false);
+			binding = HomeFragmentBinding.inflate(inflater, container, false);
 		}
 		
-		return viewModel.homeFragment.getRoot();
+		return binding.getRoot();
 	}
 
 	@Override
 	public void onViewCreated(final View fragmentView, final Bundle savedInstanceState) {
-		if (viewModel.webView != null) {
+		if (viewModel.homeFragment != null) {
 			return;
 		}
+		
+		viewModel.homeFragment = binding;
 		
 		final FragmentActivity activity = getActivity();
 		final Context context = activity.getApplicationContext();
