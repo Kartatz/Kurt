@@ -105,6 +105,8 @@ public class HomeFragment extends Fragment {
 		
 		if (viewModel.homeFragment == null) {
 			binding = HomeFragmentBinding.inflate(inflater, container, false);
+		} else {
+			binding = viewModel.homeFragment;
 		}
 		
 		return binding.getRoot();
