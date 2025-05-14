@@ -45,9 +45,9 @@ public class MainActivity extends AppCompatActivity {
 
 		final ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
 		setContentView(binding.getRoot());
-
-		CoordinatorLayout.LayoutParams a = (CoordinatorLayout.LayoutParams) binding.bottomNavigation.getLayoutParams();
-		HideViewOnScrollBehavior<BottomNavigationView> behavior = (HideViewOnScrollBehavior<BottomNavigationView>) a.getBehavior();
+		
+		final CoordinatorLayout.LayoutParams bottomNavigationLayout = (CoordinatorLayout.LayoutParams) binding.bottomNavigation.getLayoutParams();
+		final HideViewOnScrollBehavior behavior = (HideViewOnScrollBehavior) bottomNavigationLayout.getBehavior();
 		
 		final MaterialToolbar toolbar = findViewById(R.id.main_toolbar);
 		setSupportActionBar(toolbar);
