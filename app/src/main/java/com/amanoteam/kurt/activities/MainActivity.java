@@ -24,6 +24,7 @@ import androidx.fragment.app.Fragment;
 import com.amanoteam.kurt.fragments.HomeFragment;
 import androidx.activity.OnBackPressedCallback;
 import androidx.activity.OnBackPressedDispatcher;
+import com.google.android.material.appbar.AppBarLayout;
 
 public class MainActivity extends AppCompatActivity {
 	
@@ -41,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
 		final MaterialToolbar toolbar = findViewById(R.id.main_toolbar);
 		setSupportActionBar(toolbar);
+		
+		final AppBarLayout appbar = findViewById(R.id.main_appbar);
 
 		final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		preferences.registerOnSharedPreferenceChangeListener((final SharedPreferences settings, final String key) -> {
@@ -58,18 +61,17 @@ public class MainActivity extends AppCompatActivity {
 			R.id.navigation_browser, R.id.navigation_console, R.id.navigation_network)
 			.build();
 		navController = Navigation.findNavController(this, R.id.fragment_container_view);
-		
-		navController.navigate(R.id.navigation_browser);
-		navController.navigate(R.id.navigation_network);
-		navController.navigate(R.id.navigation_console);
 		NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 		NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
 		
-		//navController.addOnDestinationChangedListener((final NavController controller, final NavDestination destination, final Bundle arguments) -> PackageUtils.hideKeyboard(MainActivity.this));
+		navController.addOnDestinationChangedListener((final NavController controller, final NavDestination destination, final Bundle arguments) -> {
+			//PackageUtils.hideKeyboard(MainActivity.this));
+			appbar.setExpanded(false);
+		});
 
 		final Window window = getWindow();
 		window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-		
+		getSupportFragmentManager().findFragmentById(R.id.navigation_browser);
 		
 		onBackPressedDispatcher = getOnBackPressedDispatcher();
 		
