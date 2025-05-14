@@ -84,6 +84,13 @@ public class HomeFragment extends Fragment {
 		final LayoutInflater layoutInflater = activity.getLayoutInflater();
 		
 		webView = (WebView) fragmentView.findViewById(R.id.webview);
+		final WebSettings webSettings = webView.getSettings();
+		
+		webSettings.setJavaScriptEnabled(true);
+		webSettings.setDomStorageEnabled(true);
+		webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+		webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+		
 		webView.setWebViewClient(new WebViewClient());
 		webView.setWebChromeClient(new WebChromeClient());
 		webView.setVisibility(View.VISIBLE);

@@ -20,7 +20,6 @@ import com.google.android.material.appbar.MaterialToolbar;
 public class MainActivity extends AppCompatActivity {
 	
 	private NavController navController = null;
-	private AppBarConfiguration appBarConfiguration = null;
 	
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
@@ -42,11 +41,10 @@ public class MainActivity extends AppCompatActivity {
 			*/
 		});
 
-		appBarConfiguration = new AppBarConfiguration.Builder(
+		final AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
 			R.id.navigation_browser, R.id.navigation_console, R.id.navigation_network)
 			.build();
 		navController = Navigation.findNavController(this, R.id.fragment_container_view);
-		BottomNavigationView kkk = findViewById(R.id.bottom_navigation);
 		NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 		NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
 		
