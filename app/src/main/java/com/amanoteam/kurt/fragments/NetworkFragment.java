@@ -47,10 +47,15 @@ import java.util.List;
 import java.util.Objects;
 
 public class NetworkFragment extends Fragment {
-
+	
+	private NetworkFragmentBinding binding = null;
+	
 	@Override
 	public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
-		final NetworkFragmentBinding binding = NetworkFragmentBinding.inflate(inflater, container, false);
+		if (binding == null) {
+			binding = NetworkFragmentBinding.inflate(inflater, container, false);
+		}
+		
 		return binding.getRoot();
 	}
 

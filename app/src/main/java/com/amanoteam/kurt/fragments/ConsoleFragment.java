@@ -48,10 +48,15 @@ import java.util.List;
 import java.util.Objects;
 
 public class ConsoleFragment extends Fragment {
-
+	
+	private ConsoleFragmentBinding binding = null;
+	
 	@Override
 	public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
-		final ConsoleFragmentBinding binding = ConsoleFragmentBinding.inflate(inflater, container, false);
+		if (binding == null) {
+			binding = ConsoleFragmentBinding.inflate(inflater, container, false);
+		}
+		
 		return binding.getRoot();
 	}
 
