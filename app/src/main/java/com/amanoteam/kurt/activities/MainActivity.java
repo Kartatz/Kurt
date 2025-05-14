@@ -29,6 +29,8 @@ import android.os.IBinder;
 import android.view.inputmethod.InputMethodManager;
 import android.content.Context;
 import android.view.View;
+import com.google.android.material.behavior.HideBottomViewOnScrollBehavior;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 	
@@ -44,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
 		final ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
 		setContentView(binding.getRoot());
 
-		CoordinatorLayout.LayoutParams a = (CoordinatorLayout.LayoutParams) binding.bottomNavigation.LayoutParams;
+		CoordinatorLayout.LayoutParams a = (CoordinatorLayout.LayoutParams) binding.bottomNavigation.getLayoutParams();
+		HideBottomViewOnScrollBehavior<BottomNavigationView> behavior = (HideBottomViewOnScrollBehavior<BottomNavigationView>) a.getBehavior();
 		
 		final MaterialToolbar toolbar = findViewById(R.id.main_toolbar);
 		setSupportActionBar(toolbar);
@@ -74,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 		
 		navController.addOnDestinationChangedListener((final NavController controller, final NavDestination destination, final Bundle arguments) -> {
 			appbar.setExpanded(true, true);
-			
+			behavior.slideUp(binding.bottomNavigation);
 			final View view = getCurrentFocus();
 			
 			if (view == null) {
