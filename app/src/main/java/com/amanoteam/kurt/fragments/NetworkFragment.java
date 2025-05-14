@@ -58,11 +58,19 @@ public class NetworkFragment extends Fragment {
 	
 	@Override
 	public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
-		if (binding == null) {
-			binding = NetworkFragmentBinding.inflate(inflater, container, false);
+		final FragmentActivity activity = getActivity();
+		final Context context = activity.getApplicationContext();
+		
+		viewModel = (
+			new ViewModelProvider(activity)
+				.get(KurtViewModel.class)
+		);
+		
+		if (viewModel.networkFragment == null) {
+			viewModel.networkFragment = NetworkFragmentBinding.inflate(inflater, container, false);
 		}
 		
-		return binding.getRoot();
+		return viewModel.networkFragment.getRoot();
 	}
 
 	@Override
@@ -70,14 +78,14 @@ public class NetworkFragment extends Fragment {
 		final FragmentActivity activity = getActivity();
 		final Context context = activity.getApplicationContext();
 		
-		final LayoutInflater layoutInflater = activity.getLayoutInflater();
-		
 		viewModel = (
 			new ViewModelProvider(activity)
 				.get(KurtViewModel.class)
 		);
 		
-		viewModel.networkFragment = binding;
+		if (viewModel.networkFragment != null) {
+			return;
+		}
 		
 		final Toast toast = Toast.makeText(context, "bruh", Toast.LENGTH_SHORT);
 		toast.show();
