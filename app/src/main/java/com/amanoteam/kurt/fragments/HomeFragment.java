@@ -56,12 +56,16 @@ import android.webkit.WebViewClient;
 import android.webkit.WebSettings;
 import android.webkit.ValueCallback;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import com.amanoteam.kurt.models.KurtViewModel;
+import android.arch.lifecycle.ViewModelProvider;
 
 public class HomeFragment extends Fragment {
 	
 	private WebView webView = null;
 	
 	private HomeFragmentBinding binding = null;
+	
+	private KurtViewModel viewModel = null;
 	
 	@Override
 	public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
@@ -82,6 +86,8 @@ public class HomeFragment extends Fragment {
 		final Context context = activity.getApplicationContext();
 		
 		final LayoutInflater layoutInflater = activity.getLayoutInflater();
+		
+		viewModel = new ViewModelProvider(activity).get(KurtViewModel.class);
 		
 		webView = (WebView) fragmentView.findViewById(R.id.webview);
 		final WebSettings webSettings = webView.getSettings();

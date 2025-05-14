@@ -17,9 +17,13 @@ import com.amanoteam.kurt.R;
 import com.amanoteam.kurt.databinding.ActivityMainBinding;
 import com.google.android.material.appbar.MaterialToolbar;
 
+import com.amanoteam.kurt.models.KurtViewModel;
+import android.arch.lifecycle.ViewModelProvider;
+
 public class MainActivity extends AppCompatActivity {
 	
 	private NavController navController = null;
+	private ItemViewModel viewModel = null;
 	
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
@@ -52,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
 
 		final Window window = getWindow();
 		window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+		
+		viewModel = new ViewModelProvider(this).get(KurtViewModel.class);
 	}
 	
 	@Override
