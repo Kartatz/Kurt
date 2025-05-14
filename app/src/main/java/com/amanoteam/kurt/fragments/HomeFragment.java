@@ -57,7 +57,7 @@ import android.webkit.WebSettings;
 import android.webkit.ValueCallback;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.amanoteam.kurt.models.KurtViewModel;
-import android.arch.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProvider;
 
 public class HomeFragment extends Fragment {
 	

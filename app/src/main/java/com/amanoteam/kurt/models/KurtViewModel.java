@@ -1,6 +1,6 @@
 package com.amanoteam.kurt.models;
 
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModel;
 import android.webkit.WebView;
 
 public class KurtViewModel extends ViewModel {

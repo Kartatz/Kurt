@@ -18,7 +18,7 @@ import com.amanoteam.kurt.databinding.ActivityMainBinding;
 import com.google.android.material.appbar.MaterialToolbar;
 
 import com.amanoteam.kurt.models.KurtViewModel;
-import android.arch.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProvider;
 
 public class MainActivity extends AppCompatActivity {
 	
