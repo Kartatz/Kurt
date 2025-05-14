@@ -109,7 +109,7 @@ public class HomeFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(final View fragmentView, final Bundle savedInstanceState) {
-		if (webView != null) {
+		if (viewModel.homeFragment != null) {
 			return;
 		}
 		
@@ -117,11 +117,6 @@ public class HomeFragment extends Fragment {
 		final Context context = activity.getApplicationContext();
 		
 		final LayoutInflater layoutInflater = activity.getLayoutInflater();
-		
-		viewModel = (
-			new ViewModelProvider(activity)
-				.get(KurtViewModel.class)
-		);
 		
 		webView = (WebView) fragmentView.findViewById(R.id.webview);
 		final WebSettings webSettings = webView.getSettings();
