@@ -46,10 +46,12 @@ public class MainActivity extends AppCompatActivity {
 		final ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
 		setContentView(binding.getRoot());
 		
-		final CoordinatorLayout.LayoutParams bottomNavigationLayout = (CoordinatorLayout.LayoutParams) binding.bottomNavigation.getLayoutParams();
+		final BottomNavigationView bottomNavigationView = binding.bottomNavigation;
+		
+		final CoordinatorLayout.LayoutParams bottomNavigationLayout = (CoordinatorLayout.LayoutParams) bottomNavigationView.getLayoutParams();
 		
 		@SuppressWarnings("unchecked")
-		final HideViewOnScrollBehavior<BottomNavigationView> behavior = (HideViewOnScrollBehavior<BottomNavigationView>) bottomNavigationLayout.getBehavior();
+		final HideViewOnScrollBehavior<BottomNavigationView> bottomNavigationBehavior = (HideViewOnScrollBehavior<BottomNavigationView>) bottomNavigationLayout.getBehavior();
 		
 		final MaterialToolbar toolbar = findViewById(R.id.main_toolbar);
 		setSupportActionBar(toolbar);
@@ -79,7 +81,8 @@ public class MainActivity extends AppCompatActivity {
 		
 		navController.addOnDestinationChangedListener((final NavController controller, final NavDestination destination, final Bundle arguments) -> {
 			appbar.setExpanded(true, true);
-			behavior.slideIn(binding.bottomNavigation, true);
+			bottomNavigationBehavior.slideIn(bottomNavigationView, true);
+			
 			final View view = getCurrentFocus();
 			
 			if (view == null) {
