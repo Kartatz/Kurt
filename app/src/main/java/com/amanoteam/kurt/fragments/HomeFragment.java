@@ -64,8 +64,6 @@ public class HomeFragment extends Fragment {
 	
 	private WebView webView = null;
 	
-	private HomeFragmentBinding binding = null;
-	
 	private KurtViewModel viewModel = null;
 	
 	private String cssSelector = null;
@@ -95,11 +93,18 @@ public class HomeFragment extends Fragment {
 	
 	@Override
 	public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
-		if (binding == null) {
-			binding = HomeFragmentBinding.inflate(inflater, container, false);
+		final FragmentActivity activity = getActivity();
+		
+		viewModel = (
+			new ViewModelProvider(activity)
+				.get(KurtViewModel.class)
+		);
+		
+		if (viewModel.homeFragment == null) {
+			viewModel.homeFragment = HomeFragmentBinding.inflate(inflater, container, false);
 		}
 		
-		return binding.getRoot();
+		return viewModel.homeFragment.getRoot();
 	}
 
 	@Override

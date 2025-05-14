@@ -68,9 +68,10 @@ public class MainActivity extends AppCompatActivity {
 		
 		viewModel = new ViewModelProvider(this).get(KurtViewModel.class);
 		
+		navController.navigate(R.id.navigation_browser);
 		navController.navigate(R.id.navigation_network);
 		navController.navigate(R.id.navigation_console);
-		navController.navigate(R.id.navigation_browser);
+		
 		
 		onBackPressedDispatcher = getOnBackPressedDispatcher();
 		

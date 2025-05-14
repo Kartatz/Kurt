@@ -52,14 +52,11 @@ import android.widget.Toast;
 
 public class NetworkFragment extends Fragment {
 	
-	private NetworkFragmentBinding binding = null;
-	
 	private KurtViewModel viewModel = null;
 	
 	@Override
 	public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
 		final FragmentActivity activity = getActivity();
-		final Context context = activity.getApplicationContext();
 		
 		viewModel = (
 			new ViewModelProvider(activity)
@@ -77,11 +74,6 @@ public class NetworkFragment extends Fragment {
 	public void onViewCreated(final View fragmentView, final Bundle savedInstanceState) {
 		final FragmentActivity activity = getActivity();
 		final Context context = activity.getApplicationContext();
-		
-		viewModel = (
-			new ViewModelProvider(activity)
-				.get(KurtViewModel.class)
-		);
 		
 		if (viewModel.networkFragment != null) {
 			return;
