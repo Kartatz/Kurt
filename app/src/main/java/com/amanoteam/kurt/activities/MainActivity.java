@@ -19,6 +19,7 @@ import com.google.android.material.appbar.MaterialToolbar;
 
 import com.amanoteam.kurt.models.KurtViewModel;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModel;
 
 public class MainActivity extends AppCompatActivity {
 	
