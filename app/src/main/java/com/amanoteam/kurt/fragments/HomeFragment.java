@@ -68,6 +68,22 @@ public class HomeFragment extends Fragment {
 	
 	private KurtViewModel viewModel = null;
 	
+	private String cssSelector = null;
+	private String xPath = null;
+	private String sourceCode = null;
+	
+	static private final String JAVASCRIPT_INTERFACE = "internalBinding";
+	
+	class JavaScriptInterface {
+		public void setXPath(final String value) {
+			xPath = value;
+		}
+		
+		public void setSelector(final String value) {
+			cssSelector = value;
+		}
+	}
+	
 	@Override
 	public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
 		if (binding == null) {
@@ -101,6 +117,7 @@ public class HomeFragment extends Fragment {
 		webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
 		webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 		
+		webView.addJavascriptInterface(new JavaScriptInterface(), JAVASCRIPT_INTERFACE);
 		webView.setWebViewClient(new WebViewClient());
 		webView.setWebChromeClient(new WebChromeClient());
 		webView.setVisibility(View.VISIBLE);
