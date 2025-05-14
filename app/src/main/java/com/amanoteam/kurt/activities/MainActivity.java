@@ -51,13 +51,17 @@ public class MainActivity extends AppCompatActivity {
 			}
 			*/
 		});
-
+		
+		viewModel = new ViewModelProvider(this).get(KurtViewModel.class);
+		
 		final AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
 			R.id.navigation_browser, R.id.navigation_console, R.id.navigation_network)
 			.build();
 		navController = Navigation.findNavController(this, R.id.fragment_container_view);
 		
-		
+		navController.navigate(R.id.navigation_browser);
+		navController.navigate(R.id.navigation_network);
+		navController.navigate(R.id.navigation_console);
 		NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 		NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
 		
@@ -65,12 +69,6 @@ public class MainActivity extends AppCompatActivity {
 
 		final Window window = getWindow();
 		window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-		
-		viewModel = new ViewModelProvider(this).get(KurtViewModel.class);
-		
-		navController.navigate(R.id.navigation_browser);
-		navController.navigate(R.id.navigation_network);
-		navController.navigate(R.id.navigation_console);
 		
 		
 		onBackPressedDispatcher = getOnBackPressedDispatcher();
