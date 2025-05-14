@@ -29,7 +29,7 @@ import android.os.IBinder;
 import android.view.inputmethod.InputMethodManager;
 import android.content.Context;
 import android.view.View;
-import com.google.android.material.behavior.HideBottomViewOnScrollBehavior;
+import com.google.android.material.behavior.HideViewOnScrollBehavior;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(binding.getRoot());
 
 		CoordinatorLayout.LayoutParams a = (CoordinatorLayout.LayoutParams) binding.bottomNavigation.getLayoutParams();
-		HideBottomViewOnScrollBehavior<BottomNavigationView> behavior = (HideBottomViewOnScrollBehavior<BottomNavigationView>) a.getBehavior();
+		HideViewOnScrollBehavior<BottomNavigationView> behavior = (HideViewOnScrollBehavior<BottomNavigationView>) a.getBehavior();
 		
 		final MaterialToolbar toolbar = findViewById(R.id.main_toolbar);
 		setSupportActionBar(toolbar);
