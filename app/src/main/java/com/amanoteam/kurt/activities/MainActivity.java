@@ -23,7 +23,7 @@ import androidx.lifecycle.ViewModelProvider;
 public class MainActivity extends AppCompatActivity {
 	
 	private NavController navController = null;
-	private ItemViewModel viewModel = null;
+	private ViewModel viewModel = null;
 	
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
