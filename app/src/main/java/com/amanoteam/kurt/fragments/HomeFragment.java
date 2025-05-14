@@ -70,7 +70,8 @@ public class HomeFragment extends Fragment {
 	
 	private String cssSelector = null;
 	private String xPath = null;
-	private String sourceCode = null;
+	private String content = null;
+	private String contentParent = null;
 	
 	static private final String JAVASCRIPT_INTERFACE = "internalBinding";
 	
@@ -81,6 +82,14 @@ public class HomeFragment extends Fragment {
 		
 		public void setSelector(final String value) {
 			cssSelector = value;
+		}
+		
+		public void setContent(final String value) {
+			content = value;
+		}
+		
+		public void setContentParent(final String value) {
+			contentParent = value;
 		}
 	}
 	
