@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 	public void onBackPressed() {
 		final WebView webView = viewModel.getWebView();
 		
-		Fragment f = getFragmentManager().findFragmentById(R.id.fragment_container_view);
+		Fragment f = (androidx.fragment.app.Fragment) getFragmentManager().findFragmentById(R.id.fragment_container_view);
 		
 		if (f instanceof HomeFragment && webView.canGoBack()) {
 			webView.goBack();
