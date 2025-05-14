@@ -23,6 +23,7 @@ import androidx.lifecycle.ViewModel;
 import androidx.fragment.app.Fragment;
 import com.amanoteam.kurt.fragments.HomeFragment;
 import androidx.activity.OnBackPressedCallback;
+import androidx.activity.OnBackPressedDispatcher;
 
 public class MainActivity extends AppCompatActivity {
 	
