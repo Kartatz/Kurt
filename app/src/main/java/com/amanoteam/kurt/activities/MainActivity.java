@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 	private NavController navController = null;
 	private KurtViewModel viewModel = null;
 	
-	OnBackPressedDispatcher onBackPressedDispatcher = NULL;
+	OnBackPressedDispatcher onBackPressedDispatcher = null;
 	
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
