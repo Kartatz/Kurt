@@ -132,6 +132,10 @@ public class HomeFragment extends Fragment {
 		webSettings.setDomStorageEnabled(true);
 		webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
 		webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+		webSettings.setLoadWithOverviewMode(true);
+		webSettings.setUseWideViewPort(true);
+		webSettings.setSupportZoom(true);
+		webSettings.setBuiltInZoomControls(true);
 		
 		webView.addJavascriptInterface(new JavaScriptInterface(), JAVASCRIPT_INTERFACE);
 		webView.setWebViewClient(new WebViewClient());
