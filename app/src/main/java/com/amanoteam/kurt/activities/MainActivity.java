@@ -28,6 +28,7 @@ import com.google.android.material.appbar.AppBarLayout;
 import android.os.IBinder;
 import android.view.inputmethod.InputMethodManager;
 import android.content.Context;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 	
