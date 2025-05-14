@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 		final ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
 		setContentView(binding.getRoot());
 
-		CoordinatorLayout.LayoutParams a = (CoordinatorLayout.LayoutParams) binding.bottomNavigation.layoutParams;
+		CoordinatorLayout.LayoutParams a = (CoordinatorLayout.LayoutParams) binding.bottomNavigation.LayoutParams;
 		
 		final MaterialToolbar toolbar = findViewById(R.id.main_toolbar);
 		setSupportActionBar(toolbar);
