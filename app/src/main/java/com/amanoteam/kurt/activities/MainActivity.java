@@ -56,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
 			R.id.navigation_browser, R.id.navigation_console, R.id.navigation_network)
 			.build();
 		navController = Navigation.findNavController(this, R.id.fragment_container_view);
+		
+		navController.navigate(R.id.navigation_browser);
+		navController.navigate(R.id.navigation_console);
+		
 		NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 		NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
 		
