@@ -74,7 +74,7 @@ public class HomeFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(final View fragmentView, final Bundle savedInstanceState) {
-		if (binding != null) {
+		if (webView != null) {
 			return;
 		}
 		
