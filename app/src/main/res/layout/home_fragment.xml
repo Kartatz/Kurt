@@ -14,13 +14,13 @@
 		
 		<androidx.core.widget.NestedScrollView
 			android:layout_width="match_parent"
-			android:layout_height="match_parent" >
+			android:layout_height="match_parent"
+			app:layout_behavior="@string/appbar_scrolling_view_behavior">
 			
 			<android.webkit.WebView
 				android:id="@+id/webview"
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"
-				android:layout_gravity="center_vertical"
 				android:visibility="gone" />
 			
 		</androidx.core.widget.NestedScrollView>
