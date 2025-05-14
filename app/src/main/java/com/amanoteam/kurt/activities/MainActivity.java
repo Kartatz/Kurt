@@ -16,15 +16,17 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.amanoteam.kurt.R;
 import com.amanoteam.kurt.databinding.ActivityMainBinding;
 import com.google.android.material.appbar.MaterialToolbar;
-
+import android.webkit.WebView;
 import com.amanoteam.kurt.models.KurtViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModel;
+import androidx.fragment.app.Fragment;
+import com.amanoteam.kurt.fragments.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
 	
 	private NavController navController = null;
-	private ViewModel viewModel = null;
+	private KurtViewModel viewModel = null;
 	
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
@@ -65,5 +67,19 @@ public class MainActivity extends AppCompatActivity {
 	public boolean onSupportNavigateUp() {
         return navController.navigateUp();
     }
+
+	@Override
+	public void onBackPressed() {
+		final WebView webView = viewModel.getWebView();
+		
+		Fragment f = getActivity().getFragmentManager().findFragmentById(R.id.fragment_container_view);
+		
+		if (f instanceof HomeFragment && webView.canGoBack()) {
+			webView.goBack();
+		} else {
+			super.onBackPressed();
+		}
+	}
+	
 
 }
