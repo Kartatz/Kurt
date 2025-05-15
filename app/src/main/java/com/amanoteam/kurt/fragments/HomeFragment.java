@@ -189,7 +189,7 @@ public class HomeFragment extends Fragment {
 			final String mimetype,
 			final long contentLength
 		) {
-			final String userAgent = webView.getUserAgentString();
+			// final String userAgent = webView.getUserAgentString();
 			final String cookies = cookieManager.getCookie(url);
 			
 			final Uri uri = Uri.parse(url);
