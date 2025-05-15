@@ -174,6 +174,8 @@ public class HomeFragment extends Fragment {
 		public void onPageStarted(final WebView webView, final String url, final Bitmap favicon) {
 			//setTitle(R.string.page_loading);
 			super.onPageStarted(webView, url, favicon);
+			
+			webView.setVisibility(View.GONE);
 		}
 		
 		@Override
@@ -202,6 +204,8 @@ public class HomeFragment extends Fragment {
 			webView.evaluateJavascript(expression, null);
 			
 			super.onPageFinished(webView, url);
+			
+			webView.setVisibility(View.VISIBLE);
 		}
 		
 	};
@@ -250,7 +254,6 @@ public class HomeFragment extends Fragment {
 		webView.addJavascriptInterface(new JavaScriptInterface(), JAVASCRIPT_INTERFACE);
 		webView.setWebViewClient(new WebViewClient());
 		webView.setWebChromeClient(new WebChromeClient());
-		webView.setVisibility(View.VISIBLE);
 		webView.setWebContentsDebuggingEnabled(true);
 		
 		webView.loadUrl("https://wikipedia.org");
