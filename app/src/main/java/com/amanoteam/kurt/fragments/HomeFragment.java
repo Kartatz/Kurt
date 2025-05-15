@@ -67,6 +67,7 @@ import java.lang.StringBuilder;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import android.net.Uri;
 
 public class HomeFragment extends Fragment {
 	
@@ -108,7 +109,30 @@ public class HomeFragment extends Fragment {
 	}
 	
 	private final WebViewClient webViewClient = new WebViewClient() {
+		@Override
+		public void onPageStarted(final WebView webView, final String url, final Bitmap favicon) {
+			//setTitle(R.string.page_loading);
+			super.onPageStarted(webView, url, favicon);
+		}
 		
+		@Override
+		public boolean shouldOverrideUrlLoading(final WebView view, final WebResourceRequest request) {
+			final FragmentActivity activity = getActivity();
+			
+			final Uri uri = request.getUrl();
+			final String scheme = uri.getScheme();
+			
+			if (scheme.quals("http") || scheme.quals("https")) {
+				return false;
+			}
+			
+			final Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+			
+			activity.startActivity(intent);
+			
+			return true;
+		}
+				
 		@Override
 		public void onPageFinished(final WebView webView, final String url) {
 			// setTitle(webView.getTitle());
