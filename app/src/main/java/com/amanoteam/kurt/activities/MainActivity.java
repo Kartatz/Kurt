@@ -1,6 +1,6 @@
 package com.amanoteam.kurt.activities;
 
-import androidx.core.view.WindowCompat
+import androidx.core.view.WindowCompat;
 import androidx.appcompat.app.AppCompatDelegate;
 import android.content.SharedPreferences;
 import android.os.Bundle;
