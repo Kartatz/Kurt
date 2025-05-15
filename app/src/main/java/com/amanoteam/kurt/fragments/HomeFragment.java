@@ -177,7 +177,7 @@ public class HomeFragment extends Fragment {
 		//viewModel.homeFragment = binding;
 	}
 	
-	public void readFile(final String name) {
+	public String readFile(final String name) {
 		final FragmentActivity activity = getActivity();
 		final AssetManager assetManager = activity.getAssets();
 		
@@ -196,8 +196,9 @@ public class HomeFragment extends Fragment {
 			inputStream.close();
 		} catch (IOException e) {}
 		
-		final String expression = stringBuilder.toString();
-		webView.evaluateJavascript(expression, null);
+		final String string = stringBuilder.toString();
+		
+		return string;
 	}
 	
 }
