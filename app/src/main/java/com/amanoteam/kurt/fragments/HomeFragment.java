@@ -175,8 +175,14 @@ public class HomeFragment extends Fragment {
 		@Override
 		public void onPageStarted(final WebView webView, final String url, final Bitmap favicon) {
 			//setTitle(R.string.page_loading);
+			webView.post(new Runnable() {
+							@Override
+							public void run() {
+								progress_indicator.setVisibility(View.VISIBLE);
+							}
+						});
 			
-			progress_indicator.setVisibility(View.VISIBLE);
+			
 			super.onPageStarted(webView, url, favicon);
 			
 			//webView.setVisibility(View.INVISIBLE);
