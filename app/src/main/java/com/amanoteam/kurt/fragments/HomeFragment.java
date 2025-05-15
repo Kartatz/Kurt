@@ -135,7 +135,7 @@ import android.os.Handler;
 
 public class HomeFragment extends Fragment {
 	
-	private LinearProgressIndicator progress_indicator = null;
+	private LinearProgressIndicator progress = null;
 	private WebView webView = null;
 	
 	private KurtViewModel viewModel = null;
@@ -179,19 +179,16 @@ public class HomeFragment extends Fragment {
 		@Override
 		public void onPageStarted(final WebView webView, final String url, final Bitmap favicon) {
 			//setTitle(R.string.page_loading);
-			webView.post(new Runnable() {
-							@Override
-							public void run() {
-								final Toast toast = Toast.makeText(webView.getContext(), "onPageStarted()", Toast.LENGTH_SHORT);
-								toast.show();
-								
-							}
-						});
 			
+			new Handler(looper).post(() -> {
+				if (progress.isVisible()) {
+					return;
+				}
+				
+				progress.setVisibility(View.VISIBLE);
+			});
 			
 			super.onPageStarted(webView, url, favicon);
-			
-			//webView.setVisibility(View.INVISIBLE);
 		}
 		
 		@Override
@@ -222,7 +219,7 @@ public class HomeFragment extends Fragment {
 			webView.evaluateJavascript(expression, null);
 			
 			new Handler(looper).post(() -> {
-				progress_indicator.setVisibility(View.GONE);
+				progress.setVisibility(View.GONE);
 			});
 		}
 		
@@ -259,7 +256,7 @@ public class HomeFragment extends Fragment {
 		
 		final LayoutInflater layoutInflater = activity.getLayoutInflater();
 		
-		progress_indicator = fragmentView.findViewById(R.id.progress_indicator);
+		progress = fragmentView.findViewById(R.id.progress);
 		
 		webView = (WebView) fragmentView.findViewById(R.id.webview);
 		final WebSettings webSettings = webView.getSettings();
@@ -277,13 +274,13 @@ public class HomeFragment extends Fragment {
 		webView.setWebContentsDebuggingEnabled(true);
 		
 		webView.setVisibility(View.VISIBLE);
-		progress_indicator.setVisibility(View.VISIBLE);
+		progress.setVisibility(View.VISIBLE);
 		webView.loadUrl("https://wikipedia.org");
 		
 		final SwipeRefreshLayout swipeRefresh = fragmentView.findViewById(R.id.swipe_to_refresh);
 		
 		swipeRefresh.setOnRefreshListener(() -> {
-			progress_indicator.setVisibility(View.VISIBLE);
+			progress.setVisibility(View.VISIBLE);
 			webView.clearCache(true);
 			webView.reload();
 			swipeRefresh.setRefreshing(false);
