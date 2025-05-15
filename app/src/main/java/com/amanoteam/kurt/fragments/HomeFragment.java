@@ -261,6 +261,7 @@ public class HomeFragment extends Fragment {
 		webView.setWebChromeClient(new WebChromeClient());
 		webView.setWebContentsDebuggingEnabled(true);
 		
+		webView.setVisibility(View.VISIBLE);
 		webView.loadUrl("https://wikipedia.org");
 		
 		final SwipeRefreshLayout swipeRefresh = fragmentView.findViewById(R.id.swipe_to_refresh);
