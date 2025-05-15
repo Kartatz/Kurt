@@ -10,7 +10,7 @@ import java.lang.StringBuilder;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-
+import com.google.android.material.snackbar.Snackbar;
 import android.app.UiModeManager;
 import android.text.TextUtils;
 import android.content.ClipData;
@@ -134,6 +134,7 @@ import com.google.android.material.progressindicator.LinearProgressIndicator;
 import android.os.Looper;
 import android.os.Handler;
 import android.webkit.DownloadListener;
+import androidx.coordinatorlayout.widget.CoordinatorLayout.LayoutParams;
 
 public class HomeFragment extends Fragment {
 	
@@ -142,6 +143,8 @@ public class HomeFragment extends Fragment {
 	private LinearProgressIndicator progress = null;
 	static private final CookieManager cookieManager = CookieManager.getInstance();
 	private WebView webView = null;
+	
+	Snackbar snackbar = null;
 	
 	private KurtViewModel viewModel = null;
 	private HomeFragmentBinding binding = null;
@@ -201,6 +204,9 @@ public class HomeFragment extends Fragment {
 			request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 			
 			downloadManager.enqueue(request);
+			
+			snackbar.setText("Downloading");
+			snackbar.show();
 		}
 	};
 	
@@ -284,6 +290,16 @@ public class HomeFragment extends Fragment {
 		final Context context = activity.getApplicationContext();
 		
 		final LayoutInflater layoutInflater = activity.getLayoutInflater();
+		
+		snackbar = Snackbar.make(fragmentView, null, Snackbar.LENGTH_SHORT);
+		final View snackbarView = snackbar.getView();
+
+		final LayoutParams params = (LayoutParams) snackbarView.getLayoutParams();
+		params.setAnchorId(R.id.bottom_navigation);
+		params.gravity = Gravity.TOP;
+		params.anchorGravity = Gravity.TOP;
+
+		snackbarView.setLayoutParams(params);
 		
 		progress = fragmentView.findViewById(R.id.progress_indicator);
 		
