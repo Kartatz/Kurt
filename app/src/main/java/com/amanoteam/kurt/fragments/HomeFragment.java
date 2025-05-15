@@ -252,6 +252,8 @@ public class HomeFragment extends Fragment {
 		
 		final LayoutInflater layoutInflater = activity.getLayoutInflater();
 		
+		progress_indicator = fragmentView.findViewById(R.id.progress_indicator);
+		
 		webView = (WebView) fragmentView.findViewById(R.id.webview);
 		final WebSettings webSettings = webView.getSettings();
 		
@@ -277,8 +279,6 @@ public class HomeFragment extends Fragment {
 			webView.reload();
 			swipeRefresh.setRefreshing(false);
 		});
-		
-		progress_indicator = fragmentView.findViewById(R.id.progress_indicator);
 		
 		viewModel.setWebView(webView);
 		//viewModel.homeFragment = binding;
