@@ -83,20 +83,25 @@ public class HomeFragment extends Fragment {
 	static private final String JAVASCRIPT_INTERFACE = "internalBinding";
 	
 	class JavaScriptInterface {
+		
+		@JavascriptInterface
 		public void setXPath(final String value) {
 			xPath = value;
 		}
 		
+		@JavascriptInterface
 		public void setSelector(final String value) {
 			cssSelector = value;
 		}
 		
+		@JavascriptInterface
 		public void setContent(final String value) {
 			content = value;
 			final Toast toast = Toast.makeText(webView.getContext(), "bruh", Toast.LENGTH_SHORT);
 			toast.show();
 		}
 		
+		@JavascriptInterface
 		public void setContentParent(final String value) {
 			contentParent = value;
 		}
