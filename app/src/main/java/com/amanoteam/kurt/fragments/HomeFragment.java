@@ -202,10 +202,15 @@ public class HomeFragment extends Fragment {
 			
 			final String expression = readFile("kurt.js");
 			webView.evaluateJavascript(expression, null);
+			webView.post(new Runnable() {
+							@Override
+							public void run() {
+								webView.setVisibility(View.VISIBLE);
+							}
+						});
+			
 			
 			super.onPageFinished(webView, url);
-			
-			webView.setVisibility(View.VISIBLE);
 		}
 		
 	};
