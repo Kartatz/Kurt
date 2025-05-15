@@ -35,7 +35,6 @@
 		app:layout_constraintEnd_toEndOf="parent"
 		android:elevation="4dp"
 		app:hideAnimationBehavior="inward"
-		app:showAnimationBehavior="outward"
-		android:visibility="gone" />
+		app:showAnimationBehavior="outward" />
 	
 </androidx.constraintlayout.widget.ConstraintLayout>
