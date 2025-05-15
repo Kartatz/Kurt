@@ -157,7 +157,8 @@ public class HomeFragment extends Fragment {
 	}
 	
 	public void readFile(final String name) {
-		final AssetManager assetManager = getAssets();
+		final FragmentActivity activity = getActivity();
+		final AssetManager assetManager = activity.getAssets();
 		
 		final StringBuilder stringBuilder = new StringBuilder();
 		
