@@ -1,5 +1,6 @@
 package com.amanoteam.kurt.activities;
 
+import androidx.core.view.WindowCompat
 import androidx.appcompat.app.AppCompatDelegate;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -103,13 +104,8 @@ public class MainActivity extends AppCompatActivity {
 			params.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS;
 			window.setAttributes(params);
 		}
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-		    getWindow().setDecorFitsSystemWindows(false);
-		} else {
-		    getWindow().getDecorView().setSystemUiVisibility(
-		        View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-		        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-		}
+		
+		WindowCompat.setDecorFitsSystemWindows(window, false);
 
 		onBackPressedDispatcher = getOnBackPressedDispatcher();
 		
