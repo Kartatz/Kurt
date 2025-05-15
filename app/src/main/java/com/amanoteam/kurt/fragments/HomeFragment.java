@@ -178,6 +178,8 @@ public class HomeFragment extends Fragment {
 			webView.post(new Runnable() {
 							@Override
 							public void run() {
+								final Toast toast = Toast.makeText(webView.getContext(), "onPageStarted()", Toast.LENGTH_SHORT);
+								toast.show();
 								progress_indicator.setVisibility(View.VISIBLE);
 							}
 						});
