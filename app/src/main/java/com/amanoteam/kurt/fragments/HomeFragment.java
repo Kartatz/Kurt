@@ -181,7 +181,7 @@ public class HomeFragment extends Fragment {
 			//setTitle(R.string.page_loading);
 			
 			new Handler(looper).post(() -> {
-				if (progress.isVisible()) {
+				if (progress.isShown()) {
 					return;
 				}
 				
