@@ -100,6 +100,19 @@ public class HomeFragment extends Fragment {
 		}
 	}
 	
+	private static final WebViewClient webViewClient = new WebViewClient() {
+		
+		@Override
+		public void onPageFinished(final WebView webView, final String url) {
+			// setTitle(webView.getTitle());
+			
+			readFile("kurt.js");
+			
+			super.onPageFinished(webView, url);
+		}
+		
+	}
+	
 	@Override
 	public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
 		final FragmentActivity activity = getActivity();
