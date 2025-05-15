@@ -118,3 +118,5 @@ if (!window.isSelectorsEnabled) {
 	injectSelectors();
 }
 */
+
+injectSelectors();
