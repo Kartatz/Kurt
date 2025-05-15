@@ -287,7 +287,7 @@ public class HomeFragment extends Fragment {
 		
 		progress = fragmentView.findViewById(R.id.progress_indicator);
 		
-		downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+		downloadManager = (DownloadManager) activity.getSystemService(Context.DOWNLOAD_SERVICE);
 		
 		webView = (WebView) fragmentView.findViewById(R.id.webview);
 		final WebSettings webSettings = webView.getSettings();
