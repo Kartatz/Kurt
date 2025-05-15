@@ -106,7 +106,8 @@ public class HomeFragment extends Fragment {
 		public void onPageFinished(final WebView webView, final String url) {
 			// setTitle(webView.getTitle());
 			
-			readFile("kurt.js");
+			final String expression = readFile("kurt.js");
+			webView.evaluateJavascript(expression, null);
 			
 			super.onPageFinished(webView, url);
 		}
@@ -158,6 +159,7 @@ public class HomeFragment extends Fragment {
 		webView.setWebViewClient(new WebViewClient());
 		webView.setWebChromeClient(new WebChromeClient());
 		webView.setVisibility(View.VISIBLE);
+		webView.setWebContentsDebuggingEnabled(true);
 		
 		webView.loadUrl("https://wikipedia.org");
 		
