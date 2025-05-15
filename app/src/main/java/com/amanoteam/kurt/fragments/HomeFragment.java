@@ -111,7 +111,7 @@ public class HomeFragment extends Fragment {
 			super.onPageFinished(webView, url);
 		}
 		
-	}
+	};
 	
 	@Override
 	public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
