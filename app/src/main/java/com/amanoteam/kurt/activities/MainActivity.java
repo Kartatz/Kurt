@@ -1,5 +1,6 @@
 package com.amanoteam.kurt.activities;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Window;
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 		viewModel = new ViewModelProvider(this).get(KurtViewModel.class);
 		
 		final InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-		
+		AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 		final AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
 			R.id.navigation_browser, R.id.navigation_console, R.id.navigation_network)
 			.build();
