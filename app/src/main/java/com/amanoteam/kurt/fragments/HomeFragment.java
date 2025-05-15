@@ -303,10 +303,9 @@ public class HomeFragment extends Fragment {
 
 		final LayoutParams params = (LayoutParams) snackbarView.getLayoutParams();
 		params.setAnchorId(R.id.bottom_navigation);
-		/*
 		params.gravity = Gravity.TOP;
 		params.anchorGravity = Gravity.TOP;
-		*/
+		
 		snackbarView.setLayoutParams(params);
 		
 		webSettings.setJavaScriptEnabled(true);
