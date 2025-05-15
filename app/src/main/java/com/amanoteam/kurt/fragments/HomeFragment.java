@@ -61,6 +61,12 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModel;
 import android.widget.Toast;
 import java.io.InputStream;
+import java.io.BufferedReader;
+import java.lang.StringBuilder;
+import java.lang.StringBuilder;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 public class HomeFragment extends Fragment {
 	
