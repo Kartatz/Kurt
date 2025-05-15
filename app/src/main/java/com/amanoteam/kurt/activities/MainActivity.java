@@ -34,6 +34,11 @@ import android.content.Context;
 import android.view.View;
 import com.google.android.material.behavior.HideViewOnScrollBehavior;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import android.view.View;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.ViewCompat.OnApplyWindowInsetsListener;
+import androidx.core.graphics.Insets;
 
 public class MainActivity extends AppCompatActivity {
 	
@@ -106,7 +111,25 @@ public class MainActivity extends AppCompatActivity {
 		}
 		
 		WindowCompat.setDecorFitsSystemWindows(window, false);
+		
+		ViewCompat.setOnApplyWindowInsetsListener(binding.topBar, new OnApplyWindowInsetsListener() {
+		    @Override
+		    public WindowInsetsCompat onApplyWindowInsets(View v, WindowInsetsCompat insets) {
+		        Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+		
+		        ViewCompat.setPaddingRelative(
+		                binding.topBar,
+		                systemBars.left,
+		                systemBars.top,
+		                systemBars.right,
+		                binding.topBar.getPaddingBottom()
+		        );
+		
+		        return insets;
+		    }
+		});
 
+		
 		onBackPressedDispatcher = getOnBackPressedDispatcher();
 		
 		onBackPressedDispatcher.addCallback(this, new OnBackPressedCallback(true) {
