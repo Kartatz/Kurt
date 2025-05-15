@@ -197,7 +197,7 @@ public class HomeFragment extends Fragment {
 			
 			request.addRequestHeader("Cookie", cookies);
 			request.addRequestHeader("User-Agent", userAgent);
-			request.setMimeType(mimeType);
+			request.setMimeType(mimetype);
 			request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 			
 			downloadManager.enqueue(request);
