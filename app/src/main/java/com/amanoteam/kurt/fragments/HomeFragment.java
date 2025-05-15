@@ -25,7 +25,7 @@ import android.widget.CheckBox;
 import androidx.appcompat.widget.AppCompatButton;
 import android.content.DialogInterface;
 import android.widget.ScrollView;
-
+import android.content.res.AssetManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
@@ -36,7 +36,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
-
+import java.lang.StringBuilder;
 import com.amanoteam.kurt.R;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
@@ -154,6 +154,28 @@ public class HomeFragment extends Fragment {
 		toast.show();
 		viewModel.setWebView(webView);
 		//viewModel.homeFragment = binding;
+	}
+	
+	public void readFile(final String name) {
+		final AssetManager assetManager = getAssets();
+		
+		final StringBuilder stringBuilder = new StringBuilder();
+		
+		try {
+			final InputStream inputStream = assetManager.open(name);
+			final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8.name()));
+			
+			String string = null;
+			
+			while ((string = bufferedReader.readLine()) != null) {
+				stringBuilder.append(string);
+			}
+			
+			inputStream.close();
+		} catch (IOException e) {}
+		
+		final String expression = stringBuilder.toString();
+		webView.evaluateJavascript(expression, null);
 	}
 	
 }
