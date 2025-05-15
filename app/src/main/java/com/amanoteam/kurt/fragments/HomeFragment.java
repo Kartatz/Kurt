@@ -175,7 +175,7 @@ public class HomeFragment extends Fragment {
 			//setTitle(R.string.page_loading);
 			super.onPageStarted(webView, url, favicon);
 			
-			webView.setVisibility(View.GONE);
+			webView.setVisibility(View.INVISIBLE);
 		}
 		
 		@Override
