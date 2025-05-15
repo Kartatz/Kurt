@@ -144,6 +144,8 @@ public class HomeFragment extends Fragment {
 	private String content = null;
 	private String contentParent = null;
 	
+	static private final Looper looper = Looper.getMainLooper();
+	
 	static private final String JAVASCRIPT_INTERFACE = "internalBinding";
 	
 	class JavaScriptInterface {
@@ -216,17 +218,10 @@ public class HomeFragment extends Fragment {
 			
 			final String expression = readFile("kurt.js");
 			webView.evaluateJavascript(expression, null);
-			webView.post(new Runnable() {
-							@Override
-							public void run() {
-								progress_indicator.setVisibility(View.GONE);
-							}
-						});
 			
-			
-			
-			
-			
+			new Handler(looper).post(() -> {
+				progress_indicator.setVisibility(View.GONE);
+			});
 		}
 		
 	};
