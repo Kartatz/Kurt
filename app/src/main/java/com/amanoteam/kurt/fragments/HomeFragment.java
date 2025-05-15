@@ -256,7 +256,7 @@ public class HomeFragment extends Fragment {
 		
 		final LayoutInflater layoutInflater = activity.getLayoutInflater();
 		
-		progress = fragmentView.findViewById(R.id.progress);
+		progress = fragmentView.findViewById(R.id.progress_indicator);
 		
 		webView = (WebView) fragmentView.findViewById(R.id.webview);
 		final WebSettings webSettings = webView.getSettings();
