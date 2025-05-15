@@ -97,11 +97,19 @@ public class MainActivity extends AppCompatActivity {
 		final Window window = getWindow();
 		window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		
-		final WindowManager.LayoutParams params = window.getAttributes();
-		params.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS;
-		
-		window.setAttributes(params);
-		
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+			final WindowManager.LayoutParams params = window.getAttributes();
+			params.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS;
+			window.setAttributes(params);
+		}
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+		    getWindow().setDecorFitsSystemWindows(false);
+		} else {
+		    getWindow().getDecorView().setSystemUiVisibility(
+		        View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+		        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+		}
+
 		onBackPressedDispatcher = getOnBackPressedDispatcher();
 		
 		onBackPressedDispatcher.addCallback(this, new OnBackPressedCallback(true) {
