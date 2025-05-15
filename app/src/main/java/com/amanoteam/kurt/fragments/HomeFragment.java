@@ -183,7 +183,7 @@ public class HomeFragment extends Fragment {
 			final Uri uri = request.getUrl();
 			final String scheme = uri.getScheme();
 			
-			if (scheme.quals("http") || scheme.quals("https")) {
+			if (scheme.equals("http") || scheme.equals("https")) {
 				return false;
 			}
 			
