@@ -274,7 +274,7 @@ public class HomeFragment extends Fragment {
 		webSettings.setUseWideViewPort(true);
 		
 		webView.addJavascriptInterface(new JavaScriptInterface(), JAVASCRIPT_INTERFACE);
-		webView.setWebViewClient(new WebViewClient());
+		webView.setWebViewClient(webViewClient);
 		webView.setWebChromeClient(new WebChromeClient());
 		webView.setWebContentsDebuggingEnabled(true);
 		
