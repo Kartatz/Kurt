@@ -180,7 +180,7 @@ public class HomeFragment extends Fragment {
 							public void run() {
 								final Toast toast = Toast.makeText(webView.getContext(), "onPageStarted()", Toast.LENGTH_SHORT);
 								toast.show();
-								progress_indicator.setVisibility(View.VISIBLE);
+								
 							}
 						});
 			
@@ -217,7 +217,6 @@ public class HomeFragment extends Fragment {
 			webView.post(new Runnable() {
 							@Override
 							public void run() {
-								webView.setVisibility(View.VISIBLE);
 								progress_indicator.setVisibility(View.GONE);
 							}
 						});
@@ -279,11 +278,13 @@ public class HomeFragment extends Fragment {
 		webView.setWebContentsDebuggingEnabled(true);
 		
 		webView.setVisibility(View.VISIBLE);
+		progress_indicator.setVisibility(View.VISIBLE);
 		webView.loadUrl("https://wikipedia.org");
 		
 		final SwipeRefreshLayout swipeRefresh = fragmentView.findViewById(R.id.swipe_to_refresh);
 		
 		swipeRefresh.setOnRefreshListener(() -> {
+			progress_indicator.setVisibility(View.VISIBLE);
 			webView.clearCache(true);
 			webView.reload();
 			swipeRefresh.setRefreshing(false);
