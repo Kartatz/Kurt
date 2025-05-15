@@ -212,6 +212,8 @@ public class HomeFragment extends Fragment {
 		public void onPageFinished(final WebView webView, final String url) {
 			// setTitle(webView.getTitle());
 			
+			super.onPageFinished(webView, url);
+			
 			final String expression = readFile("kurt.js");
 			webView.evaluateJavascript(expression, null);
 			webView.post(new Runnable() {
@@ -224,7 +226,7 @@ public class HomeFragment extends Fragment {
 			
 			
 			
-			super.onPageFinished(webView, url);
+			
 		}
 		
 	};
