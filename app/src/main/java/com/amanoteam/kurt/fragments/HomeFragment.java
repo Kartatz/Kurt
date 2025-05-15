@@ -100,7 +100,7 @@ public class HomeFragment extends Fragment {
 		}
 	}
 	
-	private static final WebViewClient webViewClient = new WebViewClient() {
+	private final WebViewClient webViewClient = new WebViewClient() {
 		
 		@Override
 		public void onPageFinished(final WebView webView, final String url) {
