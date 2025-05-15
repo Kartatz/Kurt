@@ -93,6 +93,8 @@ public class HomeFragment extends Fragment {
 		
 		public void setContent(final String value) {
 			content = value;
+			final Toast toast = Toast.makeText(webView.getContext(), "bruh", Toast.LENGTH_SHORT);
+			toast.show();
 		}
 		
 		public void setContentParent(final String value) {
@@ -171,8 +173,7 @@ public class HomeFragment extends Fragment {
 			swipeRefresh.setRefreshing(false);
 		});
 		
-		final Toast toast = Toast.makeText(context, "bruh", Toast.LENGTH_SHORT);
-		toast.show();
+		
 		viewModel.setWebView(webView);
 		//viewModel.homeFragment = binding;
 	}
@@ -181,13 +182,12 @@ public class HomeFragment extends Fragment {
 		final FragmentActivity activity = getActivity();
 		final AssetManager assetManager = activity.getAssets();
 		
+		String string = null;
 		final StringBuilder stringBuilder = new StringBuilder();
 		
 		try {
 			final InputStream inputStream = assetManager.open(name);
 			final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8.name()));
-			
-			String string = null;
 			
 			while ((string = bufferedReader.readLine()) != null) {
 				stringBuilder.append(string);
@@ -196,7 +196,7 @@ public class HomeFragment extends Fragment {
 			inputStream.close();
 		} catch (IOException e) {}
 		
-		final String string = stringBuilder.toString();
+		string = stringBuilder.toString();
 		
 		return string;
 	}
