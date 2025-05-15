@@ -60,7 +60,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.preference.PreferenceManager;
 import androidx.annotation.Nullable;
 import com.google.android.material.navigation.NavigationView;
-
+import android.app.DownloadManager;
 import androidx.work.WorkRequest;
 import androidx.work.WorkManager;
 import androidx.work.OneTimeWorkRequest;
@@ -86,6 +86,7 @@ import android.widget.CheckBox;
 import androidx.appcompat.widget.AppCompatButton;
 import android.content.DialogInterface;
 import android.widget.ScrollView;
+import android.webkit.CookieManager;
 import android.content.res.AssetManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.appcompat.app.AlertDialog;
@@ -132,10 +133,14 @@ import android.net.Uri;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
 import android.os.Looper;
 import android.os.Handler;
+import android.webkit.DownloadListener;
 
 public class HomeFragment extends Fragment {
 	
+	private DownloadManager downloadManager = null;
+	
 	private LinearProgressIndicator progress = null;
+	static private final CookieManager cookieManager = CookieManager.getInstance();
 	private WebView webView = null;
 	
 	private KurtViewModel viewModel = null;
@@ -174,6 +179,30 @@ public class HomeFragment extends Fragment {
 			contentParent = value;
 		}
 	}
+	
+	private final DownloadListener downloadListener = new DownloadListener() {
+		@Override
+		public void onDownloadStart (
+			final String url,
+			final String userAgent,
+			final String contentDisposition,
+			final String mimetype,
+			final long contentLength
+		) {
+			final String userAgent = webView.getUserAgentString();
+			final String cookies = cookieManager.getCookie(url);
+			
+			final Uri uri = Uri.parse(url);
+			final DownloadManager.Request request = new DownloadManager.Request(uri);
+			
+			request.addRequestHeader("Cookie", cookies);
+			request.addRequestHeader("User-Agent", userAgent);
+			request.setMimeType(mimeType);
+			request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+			
+			downloadManager.enqueue(request);
+		}
+	};
 	
 	private final WebViewClient webViewClient = new WebViewClient() {
 		@Override
@@ -258,6 +287,8 @@ public class HomeFragment extends Fragment {
 		
 		progress = fragmentView.findViewById(R.id.progress_indicator);
 		
+		downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+		
 		webView = (WebView) fragmentView.findViewById(R.id.webview);
 		final WebSettings webSettings = webView.getSettings();
 		
@@ -272,6 +303,7 @@ public class HomeFragment extends Fragment {
 		webView.setWebViewClient(webViewClient);
 		webView.setWebChromeClient(new WebChromeClient());
 		webView.setWebContentsDebuggingEnabled(true);
+		webView.setDownloadListener(downloadListener);
 		
 		webView.setVisibility(View.VISIBLE);
 		progress.setVisibility(View.VISIBLE);
