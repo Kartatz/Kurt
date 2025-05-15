@@ -129,9 +129,11 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import android.net.Uri;
+import com.google.android.material.progressindicator.LinearProgressIndicator;
 
 public class HomeFragment extends Fragment {
 	
+	private LinearProgressIndicator progress_indicator = null;
 	private WebView webView = null;
 	
 	private KurtViewModel viewModel = null;
@@ -173,6 +175,8 @@ public class HomeFragment extends Fragment {
 		@Override
 		public void onPageStarted(final WebView webView, final String url, final Bitmap favicon) {
 			//setTitle(R.string.page_loading);
+			
+			progress_indicator.setVisibility(View.VISIBLE);
 			super.onPageStarted(webView, url, favicon);
 			
 			//webView.setVisibility(View.INVISIBLE);
@@ -209,6 +213,8 @@ public class HomeFragment extends Fragment {
 							}
 						});
 			
+			
+			progress_indicator.setVisibility(View.GONE);
 			
 			super.onPageFinished(webView, url);
 		}
@@ -272,6 +278,7 @@ public class HomeFragment extends Fragment {
 			swipeRefresh.setRefreshing(false);
 		});
 		
+		progress_indicator = fragmentView.findViewById(R.id.progress_indicator);
 		
 		viewModel.setWebView(webView);
 		//viewModel.homeFragment = binding;
