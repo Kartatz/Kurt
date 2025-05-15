@@ -13,7 +13,6 @@
 		android:layout_gravity="bottom"
 		android:indeterminate="true"
 		app:hideAnimationBehavior="inward"
-		app:indicatorColor="@color/colorSecondary"
 		app:showAnimationBehavior="outward" />
 	
 	<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
