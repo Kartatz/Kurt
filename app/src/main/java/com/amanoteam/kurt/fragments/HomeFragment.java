@@ -175,7 +175,7 @@ public class HomeFragment extends Fragment {
 		//viewModel.homeFragment = binding;
 	}
 	
-	public static void readFile(final String name) {
+	public void readFile(final String name) {
 		final FragmentActivity activity = getActivity();
 		final AssetManager assetManager = activity.getAssets();
 		
