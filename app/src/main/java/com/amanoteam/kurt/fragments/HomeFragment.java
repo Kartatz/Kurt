@@ -131,6 +131,7 @@ import java.nio.charset.StandardCharsets;
 import android.net.Uri;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
 import android.os.Looper;
+import android.os.Handler;
 
 public class HomeFragment extends Fragment {
 	
