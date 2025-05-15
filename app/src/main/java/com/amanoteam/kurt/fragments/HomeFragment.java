@@ -298,16 +298,16 @@ public class HomeFragment extends Fragment {
 		webView = (WebView) fragmentView.findViewById(R.id.webview);
 		final WebSettings webSettings = webView.getSettings();
 		
-		snackbar = Snackbar.make(webView, null, Snackbar.LENGTH_SHORT);
+		snackbar = Snackbar.make(fragmentView, null, Snackbar.LENGTH_SHORT);
 		final View snackbarView = snackbar.getView();
-
+		/*
 		final LayoutParams params = (LayoutParams) snackbarView.getLayoutParams();
 		params.setAnchorId(R.id.bottom_navigation);
 		params.gravity = Gravity.TOP;
 		params.anchorGravity = Gravity.TOP;
-
-		snackbarView.setLayoutParams(params);
 		
+		snackbarView.setLayoutParams(params);
+		*/
 		webSettings.setJavaScriptEnabled(true);
 		webSettings.setDomStorageEnabled(true);
 		webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
