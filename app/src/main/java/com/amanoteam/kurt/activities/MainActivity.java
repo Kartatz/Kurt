@@ -96,7 +96,11 @@ public class MainActivity extends AppCompatActivity {
 
 		final Window window = getWindow();
 		window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-		getSupportFragmentManager().findFragmentById(R.id.navigation_browser);
+		
+		final WindowManager.LayoutParams params = window.getAttributes();
+		params.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS;
+		
+		window.setAttributes(params);
 		
 		onBackPressedDispatcher = getOnBackPressedDispatcher();
 		
