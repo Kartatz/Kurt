@@ -203,7 +203,7 @@ public class HomeFragment extends Fragment {
 			request.setMimeType(mimetype);
 			request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 			
-			downloadManager.enqueue(request);
+			//downloadManager.enqueue(request);
 			
 			snackbar.setText("Downloading");
 			snackbar.show();
@@ -298,12 +298,12 @@ public class HomeFragment extends Fragment {
 		webView = (WebView) fragmentView.findViewById(R.id.webview);
 		final WebSettings webSettings = webView.getSettings();
 		
-		snackbar = Snackbar.make(activity.findViewById(R.id.content_main), null, Snackbar.LENGTH_SHORT);
+		snackbar = Snackbar.make(activity.findViewById(R.id.content_main), null, Snackbar.LENGTH_LONG);
 		final View snackbarView = snackbar.getView();
 
 		final LayoutParams params = (LayoutParams) snackbarView.getLayoutParams();
 		params.setAnchorId(R.id.bottom_navigation);
-		params.gravity = Gravity.TOP;
+		params.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
 		params.anchorGravity = Gravity.TOP;
 		
 		snackbarView.setLayoutParams(params);
