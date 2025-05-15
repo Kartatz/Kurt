@@ -210,11 +210,12 @@ public class HomeFragment extends Fragment {
 							@Override
 							public void run() {
 								webView.setVisibility(View.VISIBLE);
+								progress_indicator.setVisibility(View.GONE);
 							}
 						});
 			
 			
-			progress_indicator.setVisibility(View.GONE);
+			
 			
 			super.onPageFinished(webView, url);
 		}
