@@ -291,7 +291,14 @@ public class HomeFragment extends Fragment {
 		
 		final LayoutInflater layoutInflater = activity.getLayoutInflater();
 		
-		snackbar = Snackbar.make(fragmentView, null, Snackbar.LENGTH_SHORT);
+		progress = fragmentView.findViewById(R.id.progress_indicator);
+		
+		downloadManager = (DownloadManager) activity.getSystemService(Context.DOWNLOAD_SERVICE);
+		
+		webView = (WebView) fragmentView.findViewById(R.id.webview);
+		final WebSettings webSettings = webView.getSettings();
+		
+		snackbar = Snackbar.make(webView, null, Snackbar.LENGTH_SHORT);
 		final View snackbarView = snackbar.getView();
 
 		final LayoutParams params = (LayoutParams) snackbarView.getLayoutParams();
@@ -300,13 +307,6 @@ public class HomeFragment extends Fragment {
 		params.anchorGravity = Gravity.TOP;
 
 		snackbarView.setLayoutParams(params);
-		
-		progress = fragmentView.findViewById(R.id.progress_indicator);
-		
-		downloadManager = (DownloadManager) activity.getSystemService(Context.DOWNLOAD_SERVICE);
-		
-		webView = (WebView) fragmentView.findViewById(R.id.webview);
-		final WebSettings webSettings = webView.getSettings();
 		
 		webSettings.setJavaScriptEnabled(true);
 		webSettings.setDomStorageEnabled(true);
