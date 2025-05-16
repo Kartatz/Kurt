@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
 					systemBars.left,
 					systemBars.top,
 					systemBars.right,
-					appBar.getPaddingBottom()
+					appBar.getPaddingBottom() + appBar.getPaddingBottom()
 		        );
 				
 		        return insets;
