@@ -99,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
 		        previousOffset = verticalOffset;
 		
 		        // Debug log instead of Toast
-		        Log.d("AppBarOffset", "Vertical Offset: " + verticalOffset + ", PaddingTop: " + newPaddingTop);
 		    }
 		});
 
