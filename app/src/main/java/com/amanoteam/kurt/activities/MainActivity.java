@@ -160,11 +160,11 @@ public class MainActivity extends AppCompatActivity {
 		    @Override
 		    public WindowInsetsCompat onApplyWindowInsets(final View view, final WindowInsetsCompat insets) {
 				final Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-				final Toast toast = Toast.makeText(binding.getRoot().getContext(), String.format("%d %d", systemBars.top, appBar.getPaddingTop()), Toast.LENGTH_SHORT);
+				final Toast toast = Toast.makeText(binding.getRoot().getContext(), String.format("-> %d %d", systemBars.top, appBar.getPaddingTop()), Toast.LENGTH_SHORT);
 				toast.show();
 				appBar.setPaddingRelative(
 					systemBars.left,
-					systemBars.top,
+					systemBars.top + 20,
 					systemBars.right,
 					appBar.getPaddingBottom()
 		        );
