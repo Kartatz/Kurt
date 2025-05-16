@@ -1,5 +1,6 @@
 package com.amanoteam.kurt.activities;
 
+import com.google.android.material.appbar.AppBarLayout;
 import androidx.core.view.WindowCompat;
 import androidx.appcompat.app.AppCompatDelegate;
 import android.content.SharedPreferences;
@@ -62,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
 		@SuppressWarnings("unchecked")
 		final HideViewOnScrollBehavior<BottomNavigationView> bottomNavigationBehavior = (HideViewOnScrollBehavior<BottomNavigationView>) bottomNavigationLayout.getBehavior();
 		
+		final AppBarLayout appBar = findViewById(R.id.main_appbar);
+		
 		final MaterialToolbar toolbar = findViewById(R.id.main_toolbar);
 		setSupportActionBar(toolbar);
 		
@@ -113,22 +116,21 @@ public class MainActivity extends AppCompatActivity {
 		
 		WindowCompat.setDecorFitsSystemWindows(window, false);
 		
-		ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main_appbar), new OnApplyWindowInsetsListener() {
+		ViewCompat.setOnApplyWindowInsetsListener(appBar, new OnApplyWindowInsetsListener() {
 		    @Override
-		    public WindowInsetsCompat onApplyWindowInsets(View v, WindowInsetsCompat insets) {
-		        Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-		
-				findViewById(R.id.main_appbar).setPaddingRelative(
-		                systemBars.left,
-		                systemBars.top,
-		                systemBars.right,
-		                findViewById(R.id.main_appbar).getPaddingBottom()
+		    public WindowInsetsCompat onApplyWindowInsets(final View view, final WindowInsetsCompat insets) {
+				final Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+				
+				appBar.setPaddingRelative(
+					systemBars.left,
+					systemBars.top,
+					systemBars.right,
+					appBar.getPaddingBottom()
 		        );
-		
+				
 		        return insets;
 		    }
 		});
-
 		
 		onBackPressedDispatcher = getOnBackPressedDispatcher();
 		
@@ -136,16 +138,16 @@ public class MainActivity extends AppCompatActivity {
 			@Override
 			 public void handleOnBackPressed() {
 				final WebView webView = viewModel.getWebView();
+				final Fragment fragment = (Fragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container_view);
 				
-				Fragment f = (androidx.fragment.app.Fragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container_view);
-				
-				if (/*f instanceof HomeFragment && */webView.canGoBack()) {
+				if (fragment instanceof HomeFragment && webView.canGoBack()) {
 					webView.goBack();
-				} else {
-					setEnabled(false);
-					onBackPressedDispatcher.onBackPressed();
-					setEnabled(true);
+					return;
 				}
+				
+				setEnabled(false);
+				onBackPressedDispatcher.onBackPressed();
+				setEnabled(true);
 			}
 		});
 	}
@@ -154,19 +156,5 @@ public class MainActivity extends AppCompatActivity {
 	public boolean onSupportNavigateUp() {
         return navController.navigateUp();
     }
-/*
-	@Override
-	public void onBackPressed() {
-		final WebView webView = viewModel.getWebView();
-		
-		Fragment f = (androidx.fragment.app.Fragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container_view);
-		
-		if (f instanceof HomeFragment && webView.canGoBack()) {
-			webView.goBack();
-		} else {
-			super.onBackPressed();
-		}
-	}
-	
-*/
+
 }

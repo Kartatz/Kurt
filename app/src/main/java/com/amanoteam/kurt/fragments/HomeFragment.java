@@ -138,6 +138,8 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout.LayoutParams;
 
 public class HomeFragment extends Fragment {
 	
+	private FragmentActivity activity = null;
+	
 	private DownloadManager downloadManager = null;
 	
 	private LinearProgressIndicator progress = null;
@@ -285,8 +287,8 @@ public class HomeFragment extends Fragment {
 		}
 		
 		viewModel.homeFragment = binding;
+		activity = getActivity();
 		
-		final FragmentActivity activity = getActivity();
 		final Context context = activity.getApplicationContext();
 		
 		final LayoutInflater layoutInflater = activity.getLayoutInflater();
@@ -339,7 +341,6 @@ public class HomeFragment extends Fragment {
 	}
 	
 	public String readFile(final String name) {
-		final FragmentActivity activity = getActivity();
 		final AssetManager assetManager = activity.getAssets();
 		
 		String string = null;
