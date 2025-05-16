@@ -75,17 +75,18 @@ public class MainActivity extends AppCompatActivity {
 		
 		    @Override
 		    public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+			
+		        if (originalPaddingTop == -1) {
+		            // Capture the original padding once
+		            originalPaddingTop = appBar.getPaddingTop();
+		        }
+		
 		        if (verticalOffset == 0) {
 		            // Reset when fully expanded
 		            appBar.setPaddingRelative(0, originalPaddingTop, 0, 0);
 		            accumulatedOffset = 0;
 		            previousOffset = 0;
 		            return;
-		        }
-		
-		        if (originalPaddingTop == -1) {
-		            // Capture the original padding once
-		            originalPaddingTop = appBar.getPaddingTop();
 		        }
 		
 		        int delta = verticalOffset - previousOffset;
