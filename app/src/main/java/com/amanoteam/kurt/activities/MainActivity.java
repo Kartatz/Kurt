@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 			if (Math.abs(verticalOffset) >= appBarLayout.getTotalScrollRange()) {
 				appBar.setPaddingRelative(
 					0,
-					-91,
+					verticalOffset,
 					0,
 					0
 		        );
