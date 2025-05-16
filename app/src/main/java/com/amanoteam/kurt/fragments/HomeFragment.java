@@ -312,6 +312,13 @@ public class HomeFragment extends Fragment {
 		
 		snackbarView.setLayoutParams(params);
 		
+		snackbarView.setPaddingRelative(
+				0,
+				0,
+				0,
+				25
+			);
+		
 		webSettings.setJavaScriptEnabled(true);
 		webSettings.setDomStorageEnabled(true);
 		webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
