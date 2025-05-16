@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
 			);
 			
 			return WindowInsetsCompat.CONSUMED;
-			return insets;
+			//return insets;
 		});
 		
 		onBackPressedDispatcher = getOnBackPressedDispatcher();
