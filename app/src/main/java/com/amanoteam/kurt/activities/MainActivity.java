@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 						0,
 						0
 					);
-					left += verticalOffset;
+					left += Math.abs(verticalOffset);
 				}
 				final Toast toast = Toast.makeText(binding.getRoot().getContext(), String.format("%d", verticalOffset), Toast.LENGTH_SHORT);
 				toast.show();
