@@ -219,6 +219,8 @@ public class HomeFragment extends Fragment {
 			//setTitle(R.string.page_loading);
 			
 			new Handler(looper).post(() -> {
+				webView.scrollTo(0,0);
+				
 				if (progress.isShown()) {
 					return;
 				}
