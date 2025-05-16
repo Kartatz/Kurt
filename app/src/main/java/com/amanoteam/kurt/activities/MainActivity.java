@@ -35,9 +35,10 @@ import android.view.View;
 import com.google.android.material.behavior.HideViewOnScrollBehavior;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import android.view.View;
+import android.view.View;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.core.View.OnApplyWindowInsetsListener;
+import androidx.core.view.ViewCompat.OnApplyWindowInsetsListener;
 import androidx.core.graphics.Insets;
 
 public class MainActivity extends AppCompatActivity {
