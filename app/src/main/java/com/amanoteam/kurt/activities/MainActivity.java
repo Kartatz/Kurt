@@ -66,35 +66,33 @@ public class MainActivity extends AppCompatActivity {
 		final HideViewOnScrollBehavior<BottomNavigationView> bottomNavigationBehavior = (HideViewOnScrollBehavior<BottomNavigationView>) bottomNavigationLayout.getBehavior();
 		
 		final AppBarLayout appBar = findViewById(R.id.main_appbar);
-		/*
+		
 		appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
 			
-			private int paddingTop = 0;
-			private int left = 0;
+			final int initialPaddingTop = 91;
 			
 			@Override
 			public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-				if (verticalOffset==0) {
-					return;
-				}
-				if (paddingTop == 0) {
-					paddingTop = appBar.getPaddingTop();
+		        int totalScrollRange = appBarLayout.getTotalScrollRange();
+				if (initialPaddingTop == 0) {
+					initialPaddingTop = appBar.getPaddingTop();
 				}
 				
-				if (Math.abs(verticalOffset) <= paddingTop) {
-					appBar.setPaddingRelative(
-						0,
-						verticalOffset + left,
-						0,
-						0
-					);
-					left += Math.abs(verticalOffset);
-				}
-				final Toast toast = Toast.makeText(binding.getRoot().getContext(), String.format("%d", verticalOffset), Toast.LENGTH_SHORT);
-				toast.show();
-			}
+		        // Calculate scroll fraction from 0 (expanded) to 1 (collapsed)
+		        float scrollFraction = (float) Math.abs(verticalOffset) / (float) totalScrollRange;
+		
+		        // Interpolate padding
+		        int newPadding = (int) (initialPaddingTop * (1 - scrollFraction));
+		
+		        appBarLayout.setPadding(
+		                appBarLayout.getPaddingLeft(),
+		                newPadding,
+		                appBarLayout.getPaddingRight(),
+		                appBarLayout.getPaddingBottom()
+		        );
+		    }
 		});
-		*/
+		
 		final MaterialToolbar toolbar = findViewById(R.id.main_toolbar);
 		setSupportActionBar(toolbar);
 		
