@@ -5,6 +5,8 @@ import android.webkit.WebView;
 import com.amanoteam.kurt.databinding.HomeFragmentBinding;
 import com.amanoteam.kurt.databinding.ConsoleFragmentBinding;
 import com.amanoteam.kurt.databinding.NetworkFragmentBinding;
+import java.util.ArrayList;
+import java.util.List;
 
 public class KurtViewModel extends ViewModel {
 	
@@ -13,6 +15,8 @@ public class KurtViewModel extends ViewModel {
 	public NetworkFragmentBinding networkFragment = null;
 	
 	public WebView webView = null;
+	
+	public List<String> networkLogs = new ArrayList<String>();
 	
 	public WebView getWebView() {
 		return webView;
