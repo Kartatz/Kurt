@@ -303,15 +303,15 @@ public class HomeFragment extends Fragment {
 		final WebSettings webSettings = webView.getSettings();
 		
 		snackbar = Snackbar.make(activity.findViewById(R.id.content_main), null, Snackbar.LENGTH_SHORT);
-		final View snackbarView = (View) snackbar.getView().getParent();
+		final View snackbarView = (View) snackbar.getView();
 
 		final LayoutParams params = (LayoutParams) snackbarView.getLayoutParams();
 		params.setAnchorId(R.id.bottom_navigation);
 		params.gravity = Gravity.TOP;
 		params.anchorGravity = Gravity.TOP;
 		
-		//params.setMargins(0,0,0,25);
-		//snackbarView.requestLayout();
+		params.setMargins(0,0,0,25);
+		snackbarView.requestLayout();
 		snackbarView.setLayoutParams(params);
 		
 		/*
