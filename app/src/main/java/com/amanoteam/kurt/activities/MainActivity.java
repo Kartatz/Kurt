@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 		
 		final AppBarLayout appBar = findViewById(R.id.main_appbar);
 		
-		appBar.addOnOffsetChangedListener(AppBarLayout appBarLayout, int verticalOffset) -> {
+		appBar.addOnOffsetChangedListener((AppBarLayout appBarLayout, int verticalOffset) -> {
 			
 		});
 		
