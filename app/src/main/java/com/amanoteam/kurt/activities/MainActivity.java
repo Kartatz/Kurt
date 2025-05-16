@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
 		        Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
 		
 		        ViewCompat.setPaddingRelative(
-		                binding.topBar,
+		                findViewById(R.id.main_appbar),
 		                systemBars.left,
 		                systemBars.top,
 		                systemBars.right,
