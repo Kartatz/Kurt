@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 		
 		appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
 			
-			final int initialPaddingTop = 91;
+			int initialPaddingTop = 91;
 			
 			@Override
 			public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
