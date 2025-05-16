@@ -141,24 +141,24 @@ public class MainActivity extends AppCompatActivity {
 		}
 		
 		WindowCompat.setDecorFitsSystemWindows(window, false);
-		/*
-		ViewCompat.setOnApplyWindowInsetsListener(appBar, new OnApplyWindowInsetsListener() {
-			@Override
-			public WindowInsetsCompat onApplyWindowInsets(final View view, final WindowInsetsCompat insets) {
-				final Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-				final Toast toast = Toast.makeText(binding.getRoot().getContext(), String.format("-> %d %d", systemBars.top, appBar.getPaddingTop()), Toast.LENGTH_SHORT);
-				toast.show();
-				appBar.setPaddingRelative(
-					systemBars.left,
-					systemBars.top,
-					systemBars.right,
-					appBar.getPaddingBottom()
-				);
-				
+		
+		ViewCompat.setOnApplyWindowInsetsListener(appBar, ((final View view, final WindowInsetsCompat insets) -> {
+			final Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+			
+			if (appBar.getPaddingTop() == systemBars.top) {
 				return insets;
 			}
+			
+			appBar.setPaddingRelative(
+				systemBars.left,
+				systemBars.top,
+				systemBars.right,
+				appBar.getPaddingBottom()
+			);
+			
+			return insets;
 		});
-		*/
+		
 		onBackPressedDispatcher = getOnBackPressedDispatcher();
 		
 		onBackPressedDispatcher.addCallback(this, new OnBackPressedCallback(true) {
