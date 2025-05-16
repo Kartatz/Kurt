@@ -66,9 +66,12 @@ public class MainActivity extends AppCompatActivity {
 		final HideViewOnScrollBehavior<BottomNavigationView> bottomNavigationBehavior = (HideViewOnScrollBehavior<BottomNavigationView>) bottomNavigationLayout.getBehavior();
 		
 		final AppBarLayout appBar = findViewById(R.id.main_appbar);
-		int paddingTop = 0;
-		int left = 0;
+		
 		appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+			
+			private int paddingTop = 0;
+			private int left = 0;
+			
 			@Override
 			public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
 				if (paddingTop == 0) {
