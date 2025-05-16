@@ -69,7 +69,12 @@ public class MainActivity extends AppCompatActivity {
 		
 		appBar.addOnOffsetChangedListener((AppBarLayout appBarLayout, int verticalOffset) -> {
 			if (Math.abs(verticalOffset) >= appBarLayout.getTotalScrollRange()) {
-				appBar.setPaddingTop(0);
+				appBar.setPaddingRelative(
+					0,
+					-91,
+					0,
+					0
+		        );
 			}
 			final Toast toast = Toast.makeText(this, String.format("%d", verticalOffset), Toast.LENGTH_SHORT);
 			toast.show();
