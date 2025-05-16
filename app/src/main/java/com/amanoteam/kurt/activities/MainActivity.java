@@ -69,28 +69,43 @@ public class MainActivity extends AppCompatActivity {
 		
 		appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
 			
-			int initialPaddingTop = 91;
+			private int paddingTop = 0;
+			private int left = 0;
+			private int prev = 0;
 			
 			@Override
 			public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-		        int totalScrollRange = appBarLayout.getTotalScrollRange();
-				if (initialPaddingTop == 0) {
-					initialPaddingTop = appBar.getPaddingTop();
+				if (verticalOffset==0) {
+					return;
+				}
+				if (paddingTop == 0) {
+					paddingTop = appBar.getPaddingTop();
 				}
 				
-		        // Calculate scroll fraction from 0 (expanded) to 1 (collapsed)
-		        float scrollFraction = (float) Math.abs(verticalOffset) / (float) totalScrollRange;
-		
-		        // Interpolate padding
-		        int newPadding = (int) (initialPaddingTop * (1 - scrollFraction));
-		
-		        appBarLayout.setPadding(
-		                appBarLayout.getPaddingLeft(),
-		                newPadding,
-		                appBarLayout.getPaddingRight(),
-		                appBarLayout.getPaddingBottom()
-		        );
-		    }
+				if (Math.abs(verticalOffset) <= paddingTop) {
+					if (prev != 0 && verticalOffset > prev) {
+						left -= (verticalOffset - prev);
+						appBar.setPaddingRelative(
+						0,
+						(verticalOffset - prev),
+						0,
+						0
+						);
+					} else {
+						appBar.setPaddingRelative(
+						0,
+						verticalOffset + left,
+						0,
+						0
+						);
+						left += Math.abs(verticalOffset);
+						prev = verticalOffset;
+					}
+					
+				}
+				final Toast toast = Toast.makeText(binding.getRoot().getContext(), String.format("%d", verticalOffset), Toast.LENGTH_SHORT);
+				toast.show();
+			}
 		});
 		
 		final MaterialToolbar toolbar = findViewById(R.id.main_toolbar);
