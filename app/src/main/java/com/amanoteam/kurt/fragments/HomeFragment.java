@@ -257,6 +257,7 @@ public class HomeFragment extends Fragment {
 			
 			new Handler(looper).post(() -> {
 				progress.setVisibility(View.GONE);
+				webView.scrollTo(0,0);
 			});
 		}
 		

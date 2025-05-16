@@ -159,8 +159,7 @@ public class MainActivity extends AppCompatActivity {
 				appBar.getPaddingBottom()
 			);
 			
-			return WindowInsetsCompat.CONSUMED;
-			//return insets;
+			return insets;
 		});
 		
 		onBackPressedDispatcher = getOnBackPressedDispatcher();
