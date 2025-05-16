@@ -273,7 +273,7 @@ public class HomeFragment extends Fragment {
 			super.onProgressChanged(view, newProgress);
 		}
 		
-	}
+	};
 	
 	@Override
 	public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
