@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 		NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
 		
 		navController.addOnDestinationChangedListener((final NavController controller, final NavDestination destination, final Bundle arguments) -> {
-			appbar.setExpanded(true, true);
+			appBar.setExpanded(true, true);
 			bottomNavigationBehavior.slideIn(bottomNavigationView, true);
 			
 			final View view = getCurrentFocus();
