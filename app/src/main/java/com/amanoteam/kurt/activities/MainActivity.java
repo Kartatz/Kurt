@@ -118,8 +118,7 @@ public class MainActivity extends AppCompatActivity {
 		    public WindowInsetsCompat onApplyWindowInsets(View v, WindowInsetsCompat insets) {
 		        Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
 		
-		        ViewCompat.setPaddingRelative(
-		                findViewById(R.id.main_appbar),
+				findViewById(R.id.main_appbar).setPaddingRelative(
 		                systemBars.left,
 		                systemBars.top,
 		                systemBars.right,
