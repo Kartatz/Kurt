@@ -128,12 +128,13 @@ public class MainActivity extends AppCompatActivity {
 		    @Override
 		    public WindowInsetsCompat onApplyWindowInsets(final View view, final WindowInsetsCompat insets) {
 				final Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-				
+				final Toast toast = Toast.makeText(this, String.format("%d", systemBars.top), Toast.LENGTH_SHORT);
+				toast.show();
 				appBar.setPaddingRelative(
 					systemBars.left,
 					systemBars.top,
 					systemBars.right,
-					systemBars.top
+					appBar.getPaddingBottom()
 		        );
 				
 		        return insets;
