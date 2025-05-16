@@ -303,7 +303,7 @@ public class HomeFragment extends Fragment {
 		final WebSettings webSettings = webView.getSettings();
 		
 		snackbar = Snackbar.make(activity.findViewById(R.id.content_main), null, Snackbar.LENGTH_SHORT);
-		final View snackbarView = snackbar.getView().getParent();
+		final View snackbarView = (View) snackbar.getView().getParent();
 
 		final LayoutParams params = (LayoutParams) snackbarView.getLayoutParams();
 		params.setAnchorId(R.id.bottom_navigation);
