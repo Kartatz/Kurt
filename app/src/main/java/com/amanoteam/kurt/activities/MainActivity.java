@@ -69,24 +69,25 @@ public class MainActivity extends AppCompatActivity {
 		
 		appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
 		
-		    private int originalPaddingTop = -1;
-		    private int accumulatedOffset = 0;
-		    private int previousOffset = 0;
+			private int originalPaddingTop = -1;
+			private int accumulatedOffset = 0;
+			private int previousOffset = 0;
 		
-		    @Override
-		    public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+			@Override
+			public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
 			
-		        if (originalPaddingTop == -1) {
+				if (originalPaddingTop == -1) {
 					
-		            originalPaddingTop = appBar.getPaddingTop();
-		        }
+					originalPaddingTop = appBar.getPaddingTop();
+				}
+				/*
 				if (false && verticalOffset == 0) {
 					appBar.setPaddingRelative(0, originalPaddingTop, 0, 0);
 				} else if (Math.abs(verticalOffset) >= appBarLayout.getTotalScrollRange() && appBar.getPaddingTop() != 0) {
 					appBar.setPaddingRelative(0, -originalPaddingTop, 0, 0);
 				}
-				
-		    }
+				*/
+			}
 		});
 		
 		final MaterialToolbar toolbar = findViewById(R.id.main_toolbar);
@@ -142,20 +143,20 @@ public class MainActivity extends AppCompatActivity {
 		WindowCompat.setDecorFitsSystemWindows(window, false);
 		
 		ViewCompat.setOnApplyWindowInsetsListener(appBar, new OnApplyWindowInsetsListener() {
-		    @Override
-		    public WindowInsetsCompat onApplyWindowInsets(final View view, final WindowInsetsCompat insets) {
+			@Override
+			public WindowInsetsCompat onApplyWindowInsets(final View view, final WindowInsetsCompat insets) {
 				final Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
 				final Toast toast = Toast.makeText(binding.getRoot().getContext(), String.format("-> %d %d", systemBars.top, appBar.getPaddingTop()), Toast.LENGTH_SHORT);
 				toast.show();
 				appBar.setPaddingRelative(
 					systemBars.left,
-					systemBars.top,
+					systemBars.top * 2,
 					systemBars.right,
 					appBar.getPaddingBottom()
-		        );
+				);
 				
-		        return insets;
-		    }
+				return insets;
+			}
 		});
 		
 		onBackPressedDispatcher = getOnBackPressedDispatcher();
@@ -180,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
 	
 	@Override
 	public boolean onSupportNavigateUp() {
-        return navController.navigateUp();
-    }
+		return navController.navigateUp();
+	}
 
 }
