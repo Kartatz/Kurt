@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 		final HideViewOnScrollBehavior<BottomNavigationView> bottomNavigationBehavior = (HideViewOnScrollBehavior<BottomNavigationView>) bottomNavigationLayout.getBehavior();
 		
 		final AppBarLayout appBar = findViewById(R.id.main_appbar);
-		
+		/*
 		appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
 			
 			private int paddingTop = 0;
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
 				toast.show();
 			}
 		});
-		
+		*/
 		final MaterialToolbar toolbar = findViewById(R.id.main_toolbar);
 		setSupportActionBar(toolbar);
 		
