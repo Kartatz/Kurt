@@ -312,7 +312,7 @@ public class HomeFragment extends Fragment {
 		
 		snackbarView.setLayoutParams(params);
 		snackbarView.setMargins(0,0,0,25);
-		snackbarView.requestLayout()
+		snackbarView.requestLayout();
 		/*
 		snackbarView.setPaddingRelative(
 				0,
