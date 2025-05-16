@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
 			final IBinder windowToken = view.getWindowToken();
 			inputMethodManager.hideSoftInputFromWindow(windowToken, 0);
 		});
-
+		
 		final Window window = getWindow();
 		window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
 		
 		WindowCompat.setDecorFitsSystemWindows(window, false);
 		
-		ViewCompat.setOnApplyWindowInsetsListener(appBar, ((final View view, final WindowInsetsCompat insets) -> {
+		ViewCompat.setOnApplyWindowInsetsListener(appBar, (final View view, final WindowInsetsCompat insets) -> {
 			final Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
 			
 			if (appBar.getPaddingTop() == systemBars.top) {
