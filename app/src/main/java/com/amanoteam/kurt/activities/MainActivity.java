@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		enableEdgeToEdge();
 		final ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
 		setContentView(binding.getRoot());
 		
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 		final HideViewOnScrollBehavior<BottomNavigationView> bottomNavigationBehavior = (HideViewOnScrollBehavior<BottomNavigationView>) bottomNavigationLayout.getBehavior();
 		
 		final AppBarLayout appBar = findViewById(R.id.main_appbar);
-		
+		/*
 		appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
 		
 		    private int originalPaddingTop = -1;
@@ -77,12 +77,12 @@ public class MainActivity extends AppCompatActivity {
 		    public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
 			
 		        if (originalPaddingTop == -1) {
-		            // Capture the original padding once
+					
 		            originalPaddingTop = appBar.getPaddingTop();
 		        }
 		
 		        if (verticalOffset == 0) {
-		            // Reset when fully expanded
+					
 		            appBar.setPaddingRelative(0, originalPaddingTop, 0, 0);
 		            accumulatedOffset = 0;
 		            previousOffset = 0;
@@ -92,8 +92,7 @@ public class MainActivity extends AppCompatActivity {
 		
 		        int delta = verticalOffset - previousOffset;
 		        accumulatedOffset += delta;
-		
-		        // Clamp the offset so padding doesn't go negative
+				
 		        int newPaddingTop = Math.max(originalPaddingTop + accumulatedOffset, 0);
 		
 		        appBar.setPaddingRelative(0, newPaddingTop, 0, 0);
@@ -103,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 		        // Debug log instead of Toast
 		    }
 		});
-
+		*/
 		
 		final MaterialToolbar toolbar = findViewById(R.id.main_toolbar);
 		setSupportActionBar(toolbar);
