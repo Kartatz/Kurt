@@ -145,6 +145,15 @@ public class MainActivity extends AppCompatActivity {
 		ViewCompat.setOnApplyWindowInsetsListener(appBar, (final View view, final WindowInsetsCompat insets) -> {
 			final Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
 			
+			if (insets.isVisible(WindowInsetsCompat.Type.ime()) {
+				final Toast toast = Toast.makeText(binding.getRoot().getContext(), "yes", Toast.LENGTH_SHORT);
+				toast.show();
+				
+			} else {
+				final Toast toast = Toast.makeText(binding.getRoot().getContext(), "no", Toast.LENGTH_SHORT);
+				toast.show();
+			}
+			
 			if (appBar.getPaddingTop() == systemBars.top) {
 				return insets;
 			}
