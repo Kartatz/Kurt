@@ -74,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
 			
 			@Override
 			public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+				if (verticalOffset==0) {
+					return;
+				}
 				if (paddingTop == 0) {
 					paddingTop = appBar.getPaddingTop();
 				}
