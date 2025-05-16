@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
 				toast.show();
 				appBar.setPaddingRelative(
 					systemBars.left,
-					systemBars.top * 2,
+					systemBars.top,
 					systemBars.right,
 					appBar.getPaddingBottom()
 				);
