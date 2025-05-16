@@ -309,10 +309,14 @@ public class HomeFragment extends Fragment {
 		params.setAnchorId(R.id.bottom_navigation);
 		params.gravity = Gravity.TOP;
 		params.anchorGravity = Gravity.TOP;
+		final Toast toast = Toast.makeText(webView.getContext(), String.format("%d", params.bottomMargin), Toast.LENGTH_SHORT);
+		toast.show();
 		params.bottomMargin += 25;
+		
 		//params.setMargins(0,0,0,225);
-		snackbarView.requestLayout();
 		snackbarView.setLayoutParams(params);
+		snackbarView.requestLayout();
+		
 		
 		/*
 		snackbarView.setPaddingRelative(
