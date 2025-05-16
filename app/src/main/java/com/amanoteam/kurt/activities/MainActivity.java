@@ -68,8 +68,6 @@ public class MainActivity extends AppCompatActivity {
 		final MaterialToolbar toolbar = findViewById(R.id.main_toolbar);
 		setSupportActionBar(toolbar);
 		
-		final AppBarLayout appbar = findViewById(R.id.main_appbar);
-
 		final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		preferences.registerOnSharedPreferenceChangeListener((final SharedPreferences settings, final String key) -> {
 			/*
@@ -80,10 +78,13 @@ public class MainActivity extends AppCompatActivity {
 			*/
 		});
 		
-		viewModel = new ViewModelProvider(this).get(KurtViewModel.class);
+		viewModel = (
+			new ViewModelProvider(this)
+				.get(KurtViewModel.class);
+		);
 		
 		final InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-		AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+		
 		final AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
 			R.id.navigation_browser, R.id.navigation_console, R.id.navigation_network)
 			.build();

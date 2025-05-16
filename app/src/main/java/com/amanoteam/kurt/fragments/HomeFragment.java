@@ -230,7 +230,7 @@ public class HomeFragment extends Fragment {
 		
 		@Override
 		public boolean shouldOverrideUrlLoading(final WebView view, final WebResourceRequest request) {
-			final FragmentActivity activity = getActivity();
+			activity = getActivity();
 			
 			final Uri uri = request.getUrl();
 			final String scheme = uri.getScheme();
