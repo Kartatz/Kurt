@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 		        }
 				if (verticalOffset == 0) {
 					appBar.setPaddingRelative(0, originalPaddingTop, 0, 0);
-				} else if (Math.abs(verticalOffset) >= appBarLayout.getTotalScrollRange()) {
+				} else if (Math.abs(verticalOffset) >= appBarLayout.getTotalScrollRange() && appBar.getPaddingTop() != 0) {
 					appBar.setPaddingRelative(0, -originalPaddingTop, 0, 0);
 				}
 				
