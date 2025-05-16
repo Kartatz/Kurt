@@ -261,6 +261,13 @@ public class HomeFragment extends Fragment {
 			});
 		}
 		
+		@Override
+		public void onProgressChanged(WebView view, int newProgress) {
+			if (newProgress >= 100) {
+				webView.scrollTo(0,0);
+			}
+		}
+		
 	};
 	
 	@Override
