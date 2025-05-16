@@ -261,14 +261,19 @@ public class HomeFragment extends Fragment {
 			});
 		}
 		
+	};
+	
+	private final WebChromeClient webChromeClient = new WebChromeClient() {
+	
 		@Override
 		public void onProgressChanged(WebView view, int newProgress) {
 			if (newProgress >= 100) {
 				webView.scrollTo(0,0);
 			}
+			super.onProgressChanged(view, newProgress);
 		}
 		
-	};
+	}
 	
 	@Override
 	public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
@@ -343,7 +348,7 @@ public class HomeFragment extends Fragment {
 		
 		webView.addJavascriptInterface(new JavaScriptInterface(), JAVASCRIPT_INTERFACE);
 		webView.setWebViewClient(webViewClient);
-		webView.setWebChromeClient(new WebChromeClient());
+		webView.setWebChromeClient(webChromeClient);
 		webView.setWebContentsDebuggingEnabled(true);
 		webView.setDownloadListener(downloadListener);
 		
