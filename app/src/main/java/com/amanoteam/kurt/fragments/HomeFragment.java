@@ -303,7 +303,7 @@ public class HomeFragment extends Fragment {
 		final WebSettings webSettings = webView.getSettings();
 		
 		snackbar = Snackbar.make(activity.findViewById(R.id.content_main), null, Snackbar.LENGTH_SHORT);
-		final View snackbarView = snackbar.getView();
+		final View snackbarView = snackbar.getView().getParent();
 
 		final LayoutParams params = (LayoutParams) snackbarView.getLayoutParams();
 		params.setAnchorId(R.id.bottom_navigation);
@@ -311,14 +311,14 @@ public class HomeFragment extends Fragment {
 		params.anchorGravity = Gravity.TOP;
 		
 		snackbarView.setLayoutParams(params);
-		
+		/*
 		snackbarView.setPaddingRelative(
 				0,
 				0,
 				0,
 				25
 			);
-		
+		*/
 		webSettings.setJavaScriptEnabled(true);
 		webSettings.setDomStorageEnabled(true);
 		webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
