@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 		final HideViewOnScrollBehavior<BottomNavigationView> bottomNavigationBehavior = (HideViewOnScrollBehavior<BottomNavigationView>) bottomNavigationLayout.getBehavior();
 		
 		final AppBarLayout appBar = findViewById(R.id.main_appbar);
-		/*
+		
 		appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
 		
 		    private int originalPaddingTop = -1;
@@ -80,29 +80,12 @@ public class MainActivity extends AppCompatActivity {
 					
 		            originalPaddingTop = appBar.getPaddingTop();
 		        }
-		
-		        if (verticalOffset == 0) {
-					
-		            appBar.setPaddingRelative(0, originalPaddingTop, 0, 0);
-		            accumulatedOffset = 0;
-		            previousOffset = 0;
-					originalPaddingTop=-1;
-		            return;
-		        }
-		
-		        int delta = verticalOffset - previousOffset;
-		        accumulatedOffset += delta;
+				if (Math.abs(verticalOffset) >= appBarLayout.getTotalScrollRange()) {
+					appBar.setPaddingRelative(0, -originalPaddingTop, 0, 0);
+				}
 				
-		        int newPaddingTop = Math.max(originalPaddingTop + accumulatedOffset, 0);
-		
-		        appBar.setPaddingRelative(0, newPaddingTop, 0, 0);
-		
-		        previousOffset = verticalOffset;
-		
-		        // Debug log instead of Toast
 		    }
 		});
-		*/
 		
 		final MaterialToolbar toolbar = findViewById(R.id.main_toolbar);
 		setSupportActionBar(toolbar);
@@ -164,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
 				toast.show();
 				appBar.setPaddingRelative(
 					systemBars.left,
-					systemBars.top + 20,
+					systemBars.top,
 					systemBars.right,
 					appBar.getPaddingBottom()
 		        );
