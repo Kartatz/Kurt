@@ -138,6 +138,8 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout.LayoutParams;
 
 public class HomeFragment extends Fragment {
 	
+	View k = null;
+	
 	private FragmentActivity activity = null;
 	private String mainScript = null;
 	
@@ -219,7 +221,7 @@ public class HomeFragment extends Fragment {
 			//setTitle(R.string.page_loading);
 			
 			new Handler(looper).post(() -> {
-				webView.scrollTo(0,0);
+				k.scrollTo(0,0);
 				
 				if (progress.isShown()) {
 					return;
@@ -259,7 +261,7 @@ public class HomeFragment extends Fragment {
 			
 			new Handler(looper).post(() -> {
 				progress.setVisibility(View.GONE);
-				webView.scrollTo(0,0);
+				k.scrollTo(0,0);
 			});
 		}
 		
@@ -270,7 +272,7 @@ public class HomeFragment extends Fragment {
 		@Override
 		public void onProgressChanged(WebView view, int newProgress) {
 			if (newProgress >= 100) {
-				webView.scrollTo(0,0);
+				k.scrollTo(0,0);
 			}
 			super.onProgressChanged(view, newProgress);
 		}
@@ -300,6 +302,8 @@ public class HomeFragment extends Fragment {
 		if (viewModel.homeFragment != null) {
 			return;
 		}
+		
+		k = fragmentView.findViewById(R.id.nested_scroll_view);
 		
 		viewModel.homeFragment = binding;
 		activity = getActivity();
