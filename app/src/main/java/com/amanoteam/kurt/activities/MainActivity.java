@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 		
 		WindowCompat.setDecorFitsSystemWindows(window, false);
 		
-		ViewCompat.setOnApplyWindowInsetsListener(binding.topBar, new OnApplyWindowInsetsListener() {
+		ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main_appbar), new OnApplyWindowInsetsListener() {
 		    @Override
 		    public WindowInsetsCompat onApplyWindowInsets(View v, WindowInsetsCompat insets) {
 		        Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 		                systemBars.left,
 		                systemBars.top,
 		                systemBars.right,
-		                binding.topBar.getPaddingBottom()
+		                findViewById(R.id.main_appbar).getPaddingBottom()
 		        );
 		
 		        return insets;
