@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
 		}
 		
 		WindowCompat.setDecorFitsSystemWindows(window, false);
-		
+		/*
 		ViewCompat.setOnApplyWindowInsetsListener(appBar, new OnApplyWindowInsetsListener() {
 			@Override
 			public WindowInsetsCompat onApplyWindowInsets(final View view, final WindowInsetsCompat insets) {
@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
 				return insets;
 			}
 		});
-		
+		*/
 		onBackPressedDispatcher = getOnBackPressedDispatcher();
 		
 		onBackPressedDispatcher.addCallback(this, new OnBackPressedCallback(true) {
