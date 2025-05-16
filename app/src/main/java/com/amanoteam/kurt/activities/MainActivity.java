@@ -68,22 +68,25 @@ public class MainActivity extends AppCompatActivity {
 		final AppBarLayout appBar = findViewById(R.id.main_appbar);
 		int paddingTop = 0;
 		int left = 0;
-		appBar.addOnOffsetChangedListener((AppBarLayout appBarLayout, int verticalOffset) -> {
-			if (paddingTop == 0) {
-				paddingTop = appBar.getPaddingTop();
+		appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+			@Override
+			void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) -> {
+				if (paddingTop == 0) {
+					paddingTop = appBar.getPaddingTop();
+				}
+				
+				if (Math.abs(verticalOffset) <= paddingTop) {
+					appBar.setPaddingRelative(
+						0,
+						verticalOffset + left,
+						0,
+						0
+					);
+					left += verticalOffset;
+				}
+				final Toast toast = Toast.makeText(this, String.format("%d", verticalOffset), Toast.LENGTH_SHORT);
+				toast.show();
 			}
-			
-			if (Math.abs(verticalOffset) <= paddingTop) {
-				appBar.setPaddingRelative(
-					0,
-					verticalOffset + left,
-					0,
-					0
-		        );
-				left += verticalOffset;
-			}
-			final Toast toast = Toast.makeText(this, String.format("%d", verticalOffset), Toast.LENGTH_SHORT);
-			toast.show();
 		});
 		
 		final MaterialToolbar toolbar = findViewById(R.id.main_toolbar);
