@@ -1,5 +1,7 @@
 package com.amanoteam.kurt.activities;
 
+import android.widget.Toast;
+
 import com.google.android.material.appbar.AppBarLayout;
 import androidx.core.view.WindowCompat;
 import androidx.appcompat.app.AppCompatDelegate;
