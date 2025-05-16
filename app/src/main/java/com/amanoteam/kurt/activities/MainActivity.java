@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 		final AppBarLayout appBar = findViewById(R.id.main_appbar);
 		
 		appBar.addOnOffsetChangedListener((AppBarLayout appBarLayout, int verticalOffset) -> {
-			final Toast toast = Toast.makeText(getContext(), String.format("%i", verticalOffset), Toast.LENGTH_SHORT);
+			final Toast toast = Toast.makeText(this, String.format("%i", verticalOffset), Toast.LENGTH_SHORT);
 			toast.show();
 		});
 		
