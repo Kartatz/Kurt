@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 		
 		viewModel = (
 			new ViewModelProvider(this)
-				.get(KurtViewModel.class);
+				.get(KurtViewModel.class)
 		);
 		
 		final InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
