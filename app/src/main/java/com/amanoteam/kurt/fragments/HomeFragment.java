@@ -312,7 +312,7 @@ public class HomeFragment extends Fragment {
 		final Toast toast = Toast.makeText(webView.getContext(), String.format("%d", params.bottomMargin), Toast.LENGTH_SHORT);
 		toast.show();
 		
-		params.setMargins(0,0,0,params.bottomMargin == 50);
+		params.setMargins(0,0,0,params.bottomMargin + 50);
 		snackbarView.setLayoutParams(params);
 		snackbarView.requestLayout();
 		
