@@ -65,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
 		
 		final AppBarLayout appBar = findViewById(R.id.main_appbar);
 		
+		appBar.addOnOffsetChangedListener(AppBarLayout appBarLayout, int verticalOffset) -> {
+			
+		});
+		
 		final MaterialToolbar toolbar = findViewById(R.id.main_toolbar);
 		setSupportActionBar(toolbar);
 		
