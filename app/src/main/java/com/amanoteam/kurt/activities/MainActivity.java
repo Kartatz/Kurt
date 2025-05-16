@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
 		            appBar.setPaddingRelative(0, originalPaddingTop, 0, 0);
 		            accumulatedOffset = 0;
 		            previousOffset = 0;
+					originalPaddingTop=-1;
 		            return;
 		        }
 		
