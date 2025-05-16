@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 		int left = 0;
 		appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
 			@Override
-			void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) -> {
+			void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
 				if (paddingTop == 0) {
 					paddingTop = appBar.getPaddingTop();
 				}
