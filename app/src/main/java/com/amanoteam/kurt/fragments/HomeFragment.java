@@ -311,7 +311,7 @@ public class HomeFragment extends Fragment {
 		params.anchorGravity = Gravity.TOP;
 		
 		params.setMargins(0,0,0,25);
-		snackbarView.requestLayout();
+		//snackbarView.requestLayout();
 		snackbarView.setLayoutParams(params);
 		
 		/*
