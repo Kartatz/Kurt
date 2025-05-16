@@ -139,6 +139,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout.LayoutParams;
 public class HomeFragment extends Fragment {
 	
 	private FragmentActivity activity = null;
+	private String mainScript = null;
 	
 	private DownloadManager downloadManager = null;
 	
@@ -252,8 +253,7 @@ public class HomeFragment extends Fragment {
 			
 			super.onPageFinished(webView, url);
 			
-			final String expression = readFile("kurt.js");
-			webView.evaluateJavascript(expression, null);
+			webView.evaluateJavascript(mainScript, null);
 			
 			new Handler(looper).post(() -> {
 				progress.setVisibility(View.GONE);
@@ -288,6 +288,8 @@ public class HomeFragment extends Fragment {
 		
 		viewModel.homeFragment = binding;
 		activity = getActivity();
+		
+		mainScript = readFile("kurt.js");
 		
 		final Context context = activity.getApplicationContext();
 		
