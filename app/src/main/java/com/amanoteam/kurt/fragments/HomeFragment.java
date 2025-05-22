@@ -278,7 +278,7 @@ public class HomeFragment extends Fragment {
 			httpResponse.setHeaders(response.getResponseHeaders());
 			httpResponse.setStatusCode(response.getStatusCode());
 			
-			return response
+			return response;
 			
 		}
 				
