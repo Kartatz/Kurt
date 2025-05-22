@@ -137,6 +137,7 @@ import android.os.Handler;
 import android.webkit.DownloadListener;
 import androidx.coordinatorlayout.widget.CoordinatorLayout.LayoutParams;
 import com.amanoteam.kurt.network.HTTPRequest;
+import com.amanoteam.kurt.network.HTTPResponse;
 
 public class HomeFragment extends Fragment {
 	
