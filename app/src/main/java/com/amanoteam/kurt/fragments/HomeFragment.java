@@ -136,6 +136,7 @@ import android.os.Looper;
 import android.os.Handler;
 import android.webkit.DownloadListener;
 import androidx.coordinatorlayout.widget.CoordinatorLayout.LayoutParams;
+import com.amanoteam.kurt.network.HTTPRequest;
 
 public class HomeFragment extends Fragment {
 	
@@ -264,15 +265,30 @@ public class HomeFragment extends Fragment {
 			});
 		}
 		
+		public WebResourceResponse shouldInterceptRequest(final WebView view, final WebResourceRequest request) {
+			
+			final HTTPRequest httpRequest = new HTTPRequest();
+			httpRequest.setUrl(request.getUrl().toString());
+			httpRequest.setMethod(request.getMethod());
+			httpRequest.setHeaders(request.getRequestHeaders());
+			
+			final WebResourceResponse response = super.shouldInterceptRequest(view, request);
+			
+			final HTTPResponse httpResponse = new HTTPResponse();
+			httpResponse.setHeaders(response.getResponseHeaders());
+			httpResponse.setStatusCode(response.getStatusCode());
+			
+			return response
+			
+		}
+				
+		
 	};
 	
 	private final WebChromeClient webChromeClient = new WebChromeClient() {
 	
 		@Override
 		public void onProgressChanged(WebView view, int newProgress) {
-			if (newProgress >= 100) {
-				//k.scrollTo(0,0);
-			}
 			super.onProgressChanged(view, newProgress);
 		}
 		

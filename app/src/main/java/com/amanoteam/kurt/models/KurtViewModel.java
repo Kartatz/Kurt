@@ -7,12 +7,17 @@ import com.amanoteam.kurt.databinding.ConsoleFragmentBinding;
 import com.amanoteam.kurt.databinding.NetworkFragmentBinding;
 import java.util.ArrayList;
 import java.util.List;
+import com.amanoteam.kurt.network.HTTPRequest;
+import com.amanoteam.kurt.network.HTTPResponse;
 
 public class KurtViewModel extends ViewModel {
 	
 	public HomeFragmentBinding homeFragment = null;
 	public ConsoleFragmentBinding consoleFragment = null;
 	public NetworkFragmentBinding networkFragment = null;
+	
+	private List<HTTPRequest> requests = new ArrayList<HTTPRequest>();
+	private List<HTTPResponse> responses = new ArrayList<HTTPResponse>();
 	
 	public WebView webView = null;
 	
