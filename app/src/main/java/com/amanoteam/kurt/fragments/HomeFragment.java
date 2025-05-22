@@ -339,7 +339,7 @@ public class HomeFragment extends Fragment {
 		
 		webView = (WebView) fragmentView.findViewById(R.id.webview);
 		final WebSettings webSettings = webView.getSettings();
-		
+		/*
 		snackbar = Snackbar.make(binding.getRoot(), null, Snackbar.LENGTH_SHORT);
 		final View snackbarView = (View) snackbar.getView();
 
@@ -349,6 +349,7 @@ public class HomeFragment extends Fragment {
 		params.anchorGravity = Gravity.TOP;
 		final Toast toast = Toast.makeText(webView.getContext(), String.format("%d", params.bottomMargin), Toast.LENGTH_SHORT);
 		toast.show();
+		*/
 		/*
 		params.setMargins(0,0,0,params.bottomMargin + 50);
 		*/
