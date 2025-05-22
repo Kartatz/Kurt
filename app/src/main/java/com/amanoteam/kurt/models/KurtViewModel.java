@@ -16,8 +16,8 @@ public class KurtViewModel extends ViewModel {
 	public ConsoleFragmentBinding consoleFragment = null;
 	public NetworkFragmentBinding networkFragment = null;
 	
-	private List<HTTPRequest> requests = new ArrayList<HTTPRequest>();
-	private List<HTTPResponse> responses = new ArrayList<HTTPResponse>();
+	public List<HTTPRequest> requests = new ArrayList<HTTPRequest>();
+	public List<HTTPResponse> responses = new ArrayList<HTTPResponse>();
 	
 	public WebView webView = null;
 	

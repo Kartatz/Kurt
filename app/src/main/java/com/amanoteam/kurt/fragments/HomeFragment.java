@@ -273,13 +273,16 @@ public class HomeFragment extends Fragment {
 			httpRequest.setMethod(request.getMethod());
 			httpRequest.setHeaders(request.getRequestHeaders());
 			
+			viewModel.requests.add(httpRequest);
+			
+			/*
 			final WebResourceResponse response = super.shouldInterceptRequest(view, request);
 			
 			final HTTPResponse httpResponse = new HTTPResponse();
 			httpResponse.setHeaders(response.getResponseHeaders());
 			httpResponse.setStatusCode(response.getStatusCode());
-			
-			return response;
+			*/
+			return super.shouldInterceptRequest(view, request);
 			
 		}
 				
