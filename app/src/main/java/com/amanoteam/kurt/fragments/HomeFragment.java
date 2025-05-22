@@ -349,12 +349,14 @@ public class HomeFragment extends Fragment {
 		params.anchorGravity = Gravity.TOP;
 		final Toast toast = Toast.makeText(webView.getContext(), String.format("%d", params.bottomMargin), Toast.LENGTH_SHORT);
 		toast.show();
+		
+		snackbarView.setLayoutParams(params);
+		snackbarView.requestLayout();
 		*/
 		/*
 		params.setMargins(0,0,0,params.bottomMargin + 50);
 		*/
-		snackbarView.setLayoutParams(params);
-		snackbarView.requestLayout();
+		
 		
 		
 		/*
