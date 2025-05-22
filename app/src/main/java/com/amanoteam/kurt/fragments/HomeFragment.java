@@ -340,7 +340,7 @@ public class HomeFragment extends Fragment {
 		webView = (WebView) fragmentView.findViewById(R.id.webview);
 		final WebSettings webSettings = webView.getSettings();
 		
-		snackbar = Snackbar.make(activity, fragmentView, null, Snackbar.LENGTH_SHORT);
+		snackbar = Snackbar.make(activity.findViewById(android.R.id.content), null, Snackbar.LENGTH_SHORT);
 		final View snackbarView = (View) snackbar.getView();
 
 		final LayoutParams params = (LayoutParams) snackbarView.getLayoutParams();
