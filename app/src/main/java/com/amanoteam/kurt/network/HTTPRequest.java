@@ -4,7 +4,7 @@ import java.util.Map;
 
 import com.amanoteam.kurt.network.NetworkOperation;
 
-public final class HTTPRequest implements NetworkOperation {
+public final class HTTPRequest extends NetworkOperation {
 	
 	private String method = null;
 	

@@ -4,7 +4,7 @@ import java.util.Map;
 
 import com.amanoteam.kurt.network.NetworkOperation;
 
-public final class HTTPResponse implements NetworkOperation {
+public final class HTTPResponse extends NetworkOperation {
 	
 	private int statusCode = 0;
 	
